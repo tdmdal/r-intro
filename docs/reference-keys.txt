@@ -1,0 +1,11 @@
+data-structure
+programming-structure
+programming-projects
+data-manipulation
+graphics
+linear-regression
+data-science-projects
+starting
+run-r-and-rstudio-in-the-cloud
+install-r-packages
+r-online-learning-resources

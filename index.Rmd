@@ -1,0 +1,24 @@
+---
+title: "Intro to R"
+Author: "TDMDAL"
+site: bookdown::bookdown_site
+output:
+  bookdown::gitbook:
+    config:
+      toc:
+        before: |
+          <li><a href="./">Intro to R</a></li>
+      sharing: no
+    github-repo: tdmdal/r-intro
+---
+
+# Welcome {-}
+
+## What's R {-}
+
+R is...
+
+
+## About this site {-}
+
+This is a companion site for your R Intro tutorial, a prerequisite for RSM...

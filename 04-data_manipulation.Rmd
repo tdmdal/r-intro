@@ -1,0 +1,19 @@
+# (PART\*) Part II. R Data Science Basics {-}
+
+# Data manipulation
+
+# Graphics
+
+# Linear regression
+
+# Data science projects
+
+# (APPENDIX) Appendix {-}
+
+# Install R and RStudio {#starting}
+
+# Run R and RStudio in the cloud
+
+# Install R packages
+
+# R online learning resources
