@@ -25,16 +25,19 @@ This is a companion site for your R Intro tutorial, a prerequisite for RSM...
 
 ## R Workshop {-}
 
-Intro to Data Analysis (in R)
+**Intro to Data Analysis (in R)**
 
-Session 1
-Date: Thursday, September 16, 2021
-Time: 0:00 PM - 0:00 PM (EST)
-Location: TBD
+**Session 1**  
+**Date:** Thursday, September 16, 2021  
+**Time:** 6:00 PM - 8:00 PM (EST)  
+**Location:** TBD  
  
-Session 2
-Date: Thursday, September 00, 2021
-Time: 0:00 PM - 0:00 PM (EST)
-Location: TBD
+**Session 2**  
+**Date:** Thursday, September 23, 2021  
+**Time:** 6:00 PM - 8:00 PM (EST)  
+**Location:** TBD  
 
-Contact: 
+**Contact:** 
+
+## R Workshop syllabus {-}
+TBD
