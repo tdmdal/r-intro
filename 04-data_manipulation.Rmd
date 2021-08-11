@@ -1,16 +1,33 @@
-# (PART\*) Part II. R Data Science Basics {-}
+<!-- # (PART\*) Part II. R Data Science Basics {-} -->
 
-# Data manipulation
+<!-- # Data manipulation -->
 
-# Graphics
+<!-- # Graphics -->
 
-# Linear regression
+<!-- # Linear regression -->
 
-# Data science projects
+<!-- # Data science projects -->
 
 # (APPENDIX) Appendix {-}
 
 # Install R and RStudio {#starting}
+
+To begin using R you will need to install R as well as RStudio, which is an integrated development environment (IDE) for R. Both are available for Windows, Mac or Linux. To download R, go to the [Comprehensive R Archive Network](https://cran.r-project.org/) (CRAN).
+
+Note: Administrative privileges will be needed to install new software on your computer. 
+
+## Windows  
+Once on the [CRAN](https://cran.r-project.org/) page, click the "Download R for Windows" link and then click either the "base" link or the "install R for the first time" link. Next, click the first link at the top of the page, which should be the latest version of R for Windows. As of this writing, R4.1.1 is the latest version of R for Windows. An installer program will be downloaded. Click and run the installation wizard from your Downloads folder. Upon completion, R will be installed into your Program Files folders and a shortcut to R will also be placed in your Start menu. 
+
+## Mac  
+Once on the [CRAN](https://cran.r-project.org/) page, click the "Download R for Mac" link. The top of the page will have information on the latest version of R for Mac. There will also be download instructions if you are using terminal. Otherwise, right below there will be a package link (with a .pkg extension) to the latest version of R for each macOS version. As of this writing, the latest R for Mac version package is R-4.1.0.pkg. You may see multiple links with same version. Click the one which corresponds to your macOS version. An installer program will be downloaded. Click and run the installation wizard from your Downloads folder. Choose the default options, which are suitable for most users. 
+
+## Linux 
+R comes preinstalled on many Linux system. To upgrade to the newest version of R, go to the [CRAN](https://cran.r-project.org/) page and click the "Download R for Linux" link. Choose and click the linux system you have and follow the directory trail to the version of Linux you wish to install on. 
+
+## Rstudio
+
+
 
 # Run R and RStudio in the cloud
 
