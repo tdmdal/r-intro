@@ -6,5 +6,8 @@ windows
 mac
 linux
 rstudio
-install-or-update-r-packages
+r-packages
+installing-r-packages
+loading-r-packages
+updating-r-package
 r-online-learning-resources

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>B Install or Update R packages | Intro to R</title>
-  <meta name="description" content="B Install or Update R packages | Intro to R" />
+  <title>B R packages | Intro to R</title>
+  <meta name="description" content="B R packages | Intro to R" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="B Install or Update R packages | Intro to R" />
+  <meta property="og:title" content="B R packages | Intro to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="B Install or Update R packages | Intro to R" />
+  <meta name="twitter:title" content="B R packages | Intro to R" />
   
   
   
@@ -153,7 +153,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="A.3" data-path="starting.html"><a href="starting.html#linux"><i class="fa fa-check"></i><b>A.3</b> Linux</a></li>
 <li class="chapter" data-level="A.4" data-path="starting.html"><a href="starting.html#rstudio"><i class="fa fa-check"></i><b>A.4</b> RStudio</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="install-or-update-r-packages.html"><a href="install-or-update-r-packages.html"><i class="fa fa-check"></i><b>B</b> Install or Update R packages</a></li>
+<li class="chapter" data-level="B" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>B</b> R packages</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="r-packages.html"><a href="r-packages.html#installing-r-packages"><i class="fa fa-check"></i><b>B.1</b> Installing R packages</a></li>
+<li class="chapter" data-level="B.2" data-path="r-packages.html"><a href="r-packages.html#loading-r-packages"><i class="fa fa-check"></i><b>B.2</b> Loading R packages</a></li>
+<li class="chapter" data-level="B.3" data-path="r-packages.html"><a href="r-packages.html#updating-r-package"><i class="fa fa-check"></i><b>B.3</b> Updating R package</a></li>
+</ul></li>
 <li class="chapter" data-level="C" data-path="r-online-learning-resources.html"><a href="r-online-learning-resources.html"><i class="fa fa-check"></i><b>C</b> R online learning resources</a></li>
 </ul>
 
@@ -172,16 +177,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="install-or-update-r-packages" class="section level1" number="5">
-<h1><span class="header-section-number">B</span> Install or Update R packages</h1>
+<div id="r-packages" class="section level1" number="5">
+<h1><span class="header-section-number">B</span> R packages</h1>
+<div id="installing-r-packages" class="section level2" number="5.1">
+<h2><span class="header-section-number">B.1</span> Installing R packages</h2>
 <p>R comes preloaded with many useful functions. In addition, many people share useful functions they have developed as a package through CRAN and github. These packages will need to be installed on your computer before you can begin using them. The easiest way to install an R package is to use the <code>install.packages</code> function.</p>
 <p>For example, type and run the following line of code in RStudio to install the <code>ggplot2</code> package:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="install-or-update-r-packages.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-packages.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
 <p>You can also install multiple packages at once by inputting them as an R list:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="install-or-update-r-packages.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>( <span class="fu">c</span>(<span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;tidyr&#39;</span>, <span class="st">&#39;stringr&#39;</span>) )</span></code></pre></div>
-<p>Once the packages are installed, every time you want to use it you will need to load them. To load an R package into the R environment you are working on, use the <code>library</code> function:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="install-or-update-r-packages.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r-packages.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>( <span class="fu">c</span>(<span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;tidyr&#39;</span>, <span class="st">&#39;stringr&#39;</span>) )</span></code></pre></div>
+<p>Often there are many packages that have very similar purpose. You will need to do a bit of research to know which packages might be the best for you. <a href="https://www.r-bloggers.com/">R-packages mailing list</a>, <a href="https://www.r-bloggers.com/">R-bloggers</a> and <a href="http://support.rstudio.com.">RStudio support</a> are some places you can go to obtain valuable information about R packages.</p>
+</div>
+<div id="loading-r-packages" class="section level2" number="5.2">
+<h2><span class="header-section-number">B.2</span> Loading R packages</h2>
+<p>Once the packages are installed, every time you want to use it you will need to load them. The reason for installing and loading packages is to prevent R from becoming slow, by having only those programs that you need instead of everything that is available out there for use.</p>
+<p>To load an R package into the R environment you are working on, use the <code>library</code> function:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-packages.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
 <p>Note that you no longer need to use the quotation marks here.</p>
+</div>
+<div id="updating-r-package" class="section level2" number="5.3">
+<h2><span class="header-section-number">B.3</span> Updating R package</h2>
+<p>Catching bugs, improving performance and updating programs are important part of software maintenance. Thus, package authors occasionally release a new version of their packages. You will need to update the packages version in order to take advantage of improvements made to those packages. To do so, R provide the <code>update.packages</code> function:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-packages.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>( <span class="fu">c</span>(<span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;tidyr&#39;</span>, <span class="st">&#39;stringr&#39;</span>) )</span></code></pre></div>
+<p>Restarting R session is required after updating packages. Simply close RStudio and reopen it to begin using the updated version of the package.</p>
+</div>
 </div>
             </section>
 

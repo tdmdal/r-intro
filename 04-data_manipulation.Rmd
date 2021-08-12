@@ -35,20 +35,38 @@ When you open RStudio, you will see three panes. The largest pane is the console
 
 <!-- # Run R and RStudio in the cloud -->
 
-# Install or Update R packages
+# R packages
 
-R comes preloaded with many useful functions. Yet, there are many other functions that reside in packages that we might need to use. These packages will need to be installed on your computer so that you can load it into R and begin using functions offered by them. The easiest way to install an R package is to use the `install.packages` function.
+## Installing R packages
 
-For example, type and run the following line of code in RStudio to install the `ggplot2` package:
-```{r}
-require('ggplot2')
+R comes preloaded with many useful functions. In addition, many people share useful functions they have developed as a package through CRAN and github. These packages will need to be installed on your computer before you can begin using them. The easiest way to install an R package is to use the `install.packages` function.
+
+For example, type and run the following line of code in console window of RStudio to install the `ggplot2` package:  
+```r
+install.packages('ggplot2')
 ```
 
-<!-- You can also install multiple packages at once by inputting them as an R list: -->
-<!-- ```{r} -->
-<!-- install.packages( c('dplyr', 'tidyr', 'stringr') ) -->
-<!-- ``` -->
+You can also install multiple packages at once by inputting them as an R list:  
+```r
+install.packages( c('dplyr', 'tidyr', 'stringr') )
+```
 
+Often there are many packages that have very similar purpose. You will need to do a bit of research to know which packages might be the best for you. [R-packages mailing list](https://www.r-bloggers.com/), [R-bloggers](https://www.r-bloggers.com/) and [RStudio support](http://support.rstudio.com.) are some places you can go to obtain valuable information about R packages. 
 
+## Loading R packages  
+Once the packages are installed, every time you want to use it you will need to load them. The reason for installing and loading packages is to prevent R from becoming slow, by having only those programs that you need instead of everything that is available out there for use. 
+
+To load an R package into the R environment you are working on, use the `library` function:
+```r
+library(ggplot2)
+```
+Note that you no longer need to use the quotation marks here. 
+
+## Updating R package  
+Catching bugs, improving performance and updating programs are important part of software maintenance. Thus, package authors occasionally release a new version of their packages. You will need to update the packages version in order to take advantage of improvements made to those packages. To do so, R provide the `update.packages` function:
+```r
+update.packages( c('dplyr', 'tidyr', 'stringr') )
+```
+Restarting R session is required after updating packages. Simply close RStudio and reopen it to begin using the updated version of the packages.  
 
 # R online learning resources
