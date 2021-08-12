@@ -5,7 +5,7 @@ starting
 windows
 mac
 linux
-rstudio
+install-rstudio
 r-packages
 installing-r-packages
 loading-r-packages

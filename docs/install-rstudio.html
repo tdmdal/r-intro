@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>C R packages | Intro to R</title>
-  <meta name="description" content="C R packages | Intro to R" />
+  <title>B Install RStudio | Intro to R</title>
+  <meta name="description" content="B Install RStudio | Intro to R" />
   <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="C R packages | Intro to R" />
+  <meta property="og:title" content="B Install RStudio | Intro to R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="C R packages | Intro to R" />
+  <meta name="twitter:title" content="B Install RStudio | Intro to R" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="install-rstudio.html"/>
-<link rel="next" href="r-online-learning-resources.html"/>
+<link rel="prev" href="starting.html"/>
+<link rel="next" href="r-packages.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -177,38 +177,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="r-packages" class="section level1" number="6">
-<h1><span class="header-section-number">C</span> R packages</h1>
-<div id="installing-r-packages" class="section level2" number="6.1">
-<h2><span class="header-section-number">C.1</span> Installing R packages</h2>
-<p>R comes preloaded with many useful functions. In addition, many people share useful functions they have developed as a package through CRAN and github. These packages will need to be installed on your computer before you can begin using them. The easiest way to install an R package is to use the <code>install.packages</code> function.</p>
-<p>For example, type and run the following line of code in console window of RStudio to install the <code>ggplot2</code> package:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-packages.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;ggplot2&#39;</span>)</span></code></pre></div>
-<p>You can also install multiple packages at once by inputting them as an R list:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r-packages.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>( <span class="fu">c</span>(<span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;tidyr&#39;</span>, <span class="st">&#39;stringr&#39;</span>) )</span></code></pre></div>
-<p>Often there are many packages that have very similar purpose. You will need to do a bit of research to know which packages might be the best for you. <a href="https://www.r-bloggers.com/">R-packages mailing list</a>, <a href="https://www.r-bloggers.com/">R-bloggers</a> and <a href="http://support.rstudio.com.">RStudio support</a> are some places you can go to obtain valuable information about R packages.</p>
-</div>
-<div id="loading-r-packages" class="section level2" number="6.2">
-<h2><span class="header-section-number">C.2</span> Loading R packages</h2>
-<p>Once the packages are installed, every time you want to use it you will need to load them. The reason for installing and loading packages is to prevent R from becoming slow, by having only those programs that you need instead of everything that is available out there for use.</p>
-<p>To load an R package into the R environment you are working on, use the <code>library</code> function:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-packages.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code></pre></div>
-<p>Note that you no longer need to use the quotation marks here.</p>
-</div>
-<div id="updating-r-package" class="section level2" number="6.3">
-<h2><span class="header-section-number">C.3</span> Updating R package</h2>
-<p>Catching bugs, improving performance and updating programs are important part of software maintenance. Thus, package authors occasionally release a new version of their packages. You will need to update the packages version in order to take advantage of improvements made to those packages. To do so, R provide the <code>update.packages</code> function:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-packages.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update.packages</span>( <span class="fu">c</span>(<span class="st">&#39;dplyr&#39;</span>, <span class="st">&#39;tidyr&#39;</span>, <span class="st">&#39;stringr&#39;</span>) )</span></code></pre></div>
-<p>Restarting R session is required after updating packages. Simply close RStudio and reopen it to begin using the updated version of the packages.</p>
-</div>
+<div id="install-rstudio" class="section level1" number="5">
+<h1><span class="header-section-number">B</span> Install RStudio</h1>
+<p>R is a computer language. To run programs written in R you will need a tool that your computer can use to interpret R. This can be a UNIX terminal. However, RStudio is more popular due to its easy-to-use interface. You can also use other IDE of your choice, given it is R compatible.</p>
+<p>There are two versions of RStudio, Desktop and Server, available to download for free. Choose the Desktop version by clicking on “Download RStudio Desktop” link on the <a href="https://www.rstudio.com/products/rstudio/">Rstudio products</a> page. Follow the instructions to complete the installation. Once completed, you can use RStudio as most other programs in your computer by simply opening RStudio.</p>
+<p>When you open RStudio, you will see three panes. The largest pane is the console window, which is exactly the same as what you would see if you opened R application. This is where you will write your R codes and run them. The remaining two panes serve as text editor, graphics window, debugger, file manager, package manager and much more. You will learn about these functions as we require them.</p>
+<p><strong>Note:</strong> When a new release of the R and/or RStudio is available for your computer, you can follow the same installation process to upgrade to the new version.</p>
+<!-- # Run R and RStudio in the cloud -->
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="install-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="r-online-learning-resources.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="starting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="r-packages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
