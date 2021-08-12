@@ -6,6 +6,5 @@ windows
 mac
 linux
 rstudio
-run-r-and-rstudio-in-the-cloud
-install-r-packages
+install-or-update-r-packages
 r-online-learning-resources
