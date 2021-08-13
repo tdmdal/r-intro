@@ -1,4 +1,7 @@
 data-structure
+operators
+objects
+data-types
 programming-structure
 programming-projects
 starting

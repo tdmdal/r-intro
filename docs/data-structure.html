@@ -134,15 +134,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Intro to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Intro to R for Business</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#whats-r"><i class="fa fa-check"></i>What’s R</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-site"><i class="fa fa-check"></i>About this site</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-workshop"><i class="fa fa-check"></i>R Workshop</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-workshop-syllabus"><i class="fa fa-check"></i>R Workshop syllabus</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-workshop"><i class="fa fa-check"></i>R Workshop</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#event-details"><i class="fa fa-check"></i>Event details</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#syllabus"><i class="fa fa-check"></i>Syllabus</a></li>
+</ul></li>
 </ul></li>
 <li class="part"><span><b>Part I. R Programming Basics</b></span></li>
-<li class="chapter" data-level="1" data-path="data-structure.html"><a href="data-structure.html"><i class="fa fa-check"></i><b>1</b> Data structure</a></li>
+<li class="chapter" data-level="1" data-path="data-structure.html"><a href="data-structure.html"><i class="fa fa-check"></i><b>1</b> Data structure</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="data-structure.html"><a href="data-structure.html#operators"><i class="fa fa-check"></i><b>1.1</b> Operators</a></li>
+<li class="chapter" data-level="1.2" data-path="data-structure.html"><a href="data-structure.html#objects"><i class="fa fa-check"></i><b>1.2</b> Objects</a></li>
+<li class="chapter" data-level="1.3" data-path="data-structure.html"><a href="data-structure.html#data-types"><i class="fa fa-check"></i><b>1.3</b> Data Types</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="programming-structure.html"><a href="programming-structure.html"><i class="fa fa-check"></i><b>2</b> Programming structure</a></li>
 <li class="chapter" data-level="3" data-path="programming-projects.html"><a href="programming-projects.html"><i class="fa fa-check"></i><b>3</b> Programming projects</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
@@ -179,8 +187,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="data-structure" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Data structure</h1>
-<p>Under construction</p>
+<div id="operators" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Operators</h2>
+<p>Let us start with the basic. Almost all programming languages can be used as a calculator. You can use the <code>+</code>, <code>-</code>, <code>*</code> and <code>/</code> symbols to perform addition, subtraction, multiplication and division between two numeric values. These are called <em>arithmetic (binary) operators</em>. Type the following lines of code on the RStudio console pane and check the results of these operations:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="data-structure.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb1-2"><a href="data-structure.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">5</span></span>
+<span id="cb1-3"><a href="data-structure.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fl">4.5</span><span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb1-4"><a href="data-structure.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
+<p>The <code>[1]</code> in front of the results indicates that the value after it is the first value of the result for that operation.</p>
+<p>Some other arithmetic operators are <code>^</code> or <code>**</code> for exponentiation, <code>%%</code> <a href="https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/what-is-modular-arithmetic">modulus</a> and <code>%/%</code> for <a href="https://mathworld.wolfram.com/IntegerDivision.html">integer division</a>.</p>
+<p><em>Logical operators</em> perform comparison between two values. Logical operators return either True or False. Type and run the following lines of code and check the results:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="data-structure.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">&lt;</span> <span class="dv">4</span> <span class="co"># less than</span></span>
+<span id="cb2-2"><a href="data-structure.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">1</span> <span class="co"># greater than</span></span>
+<span id="cb2-3"><a href="data-structure.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">==</span><span class="dv">1</span>  <span class="co"># exactly equal to</span></span>
+<span id="cb2-4"><a href="data-structure.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">&gt;=</span><span class="dv">5</span>  <span class="co"># greater than and equal to</span></span>
+<span id="cb2-5"><a href="data-structure.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">!=</span><span class="dv">6</span>  <span class="co"># not equal to</span></span></code></pre></div>
+</div>
+<div id="objects" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Objects</h2>
+<p><strong>Creating Objects</strong><br />
+The power of programming lies in its ability to not only manipulate numeric values but also textual values. Any value can be stored as an object in a computer program and then referenced later for further manipulation. The <em>assignment operator</em>, <code>=</code>, is used to assign a value to an object. It comprises the less than symbol <code>&lt;</code> and a hyphen <code>-</code>. Manipulation to the value can be done by manipulating the object.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="data-structure.html#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb3-2"><a href="data-structure.html#cb3-2" aria-hidden="true" tabindex="-1"></a>a<span class="sc">+</span><span class="dv">5</span></span>
+<span id="cb3-3"><a href="data-structure.html#cb3-3" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="fl">2.5</span></span>
+<span id="cb3-4"><a href="data-structure.html#cb3-4" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&gt;=</span><span class="dv">5</span></span></code></pre></div>
+<p>Object provide a way of storing data with a descriptive name such that the programs can be easily read and understood by its readers. For example, we can create an object <code>aapl</code>, which is the ticker for the company Apple Inc. and assign it a value of <code>274.5b</code>, which is Apple’s revenue in billions for the year 2020. Now, every time you type <code>aapl</code> on the console, it will print <code>274.5b</code>, unless you reassign a different value to this object.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data-structure.html#cb4-1" aria-hidden="true" tabindex="-1"></a>aapl <span class="ot">&lt;-</span> <span class="st">&quot;274.5b&quot;</span></span>
+<span id="cb4-2"><a href="data-structure.html#cb4-2" aria-hidden="true" tabindex="-1"></a>aapl</span></code></pre></div>
+<p><strong>Naming Objects</strong><br />
+Naming an object is a not that easy. You want the name to be meaningful and easily understood but not very lengthy. Objects with multiple words can be created by joining them with an underscore or a dot. You can also capitalize the different words. Object names cannot start with a number or a dot. Avoid using alphanumeric character in object names.</p>
+<p>Most importantly do not use a name that has already been assigned to some other value, unless you have good reason to do so. For example, variable <code>pi</code> exists in R by default. So does keyword variables like <code>TRUE</code>, <code>FALSE</code>, <code>NA</code>, etc. Do not use these names while creating an object. Doing so will override their default value and you have to restart the R session to revert back.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data-structure.html#cb5-1" aria-hidden="true" tabindex="-1"></a>pi</span>
+<span id="cb5-2"><a href="data-structure.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span></span>
+<span id="cb5-3"><a href="data-structure.html#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span></span>
+<span id="cb5-4"><a href="data-structure.html#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span></span></code></pre></div>
+<p>R is case sensitive meaning <code>TRUE</code> and <code>True</code> are not the same. Try it yourself and see what you get!</p>
+<p>So far, you have created two objects, <code>a</code> and <code>aapl</code>. In the top right hand pane of RStudio, you will see these two objects listed on the ‘Environment’ tab. If you click on the down arrow by the <code>List</code> icon and select <code>Grid</code> view, you will see additional details about these objects such as type, length, size and value.</p>
+</div>
+<div id="data-types" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Data Types</h2>
+<p>Lets look at the type in detail because it is important to know how R deals with different types of data. Type of an object, also known as its data type, tells us the kind of operations that is possible with that object. For example, <code>a</code> has numeric data type and therefore arithmetic operations can be performed with it. <code>aapl</code> is of character type and therefore, arithmetic operators cannot be applied to it. If you do, you will receive an error:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data-structure.html#cb6-1" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb6-2"><a href="data-structure.html#cb6-2" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb6-3"><a href="data-structure.html#cb6-3" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">/</span><span class="dv">3</span></span></code></pre></div>
+<p>The error message tells you that you are applying a binary operator to a non-numeric value.</p>
 
+</div>
 </div>
             </section>
 

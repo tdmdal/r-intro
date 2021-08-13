@@ -2,4 +2,65 @@
 
 # Data structure
 
-Under construction
+## Operators  
+
+Let us start with the basic. Almost all programming languages can be used as a calculator. You can use the `+`, `-`, `*` and `/` symbols to perform addition, subtraction, multiplication and division between two numeric values. These are called _arithmetic (binary) operators_. Type the following lines of code on the RStudio console pane and check the results of these operations:
+```r
+2 + 2
+10 - 5
+4.5*3
+4/2
+```
+The `[1]` in front of the results indicates that the value after it is the first value of the result for that operation.
+
+Some other arithmetic operators are `^` or `**` for exponentiation, `%%` [modulus](https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/what-is-modular-arithmetic) and `%/%` for [integer division](https://mathworld.wolfram.com/IntegerDivision.html). 
+
+_Logical operators_ perform comparison between two values. Logical operators return either True or False. Type and run the following lines of code and check the results:
+```r
+5 < 4 # less than
+2 > 1 # greater than
+2==1  # exactly equal to
+5>=5  # greater than and equal to
+5!=6  # not equal to
+```
+
+## Objects  
+
+__Creating Objects__  
+The power of programming lies in its ability to not only manipulate numeric values but also textual values. Any value can be stored as an object in a computer program and then referenced later for further manipulation. The _assignment operator_, `=`, is used to assign a value to an object. It comprises the less than symbol `<` and a hyphen `-`. Manipulation to the value can be done by manipulating the object. 
+```r
+a <- 5
+a+5
+a*2.5
+a>=5
+```
+Object provide a way of storing data with a descriptive name such that the programs can be easily read and understood by its readers. For example, we can create an object `aapl`, which is the ticker for the company Apple Inc. and assign it a value of `274.5b`, which is Apple's revenue in billions for the year 2020. Now, every time you type `aapl` on the console, it will print `274.5b`, unless you reassign a different value to this object. 
+```r
+aapl <- "274.5b"
+aapl
+```
+
+__Naming Objects__  
+Naming an object is a not that easy. You want the name to be meaningful and easily understood but not very lengthy. Objects with multiple words can be created by joining them with an underscore or a dot. You can also capitalize the different words. Object names cannot start with a number or a dot. Avoid using alphanumeric character in object names. 
+
+Most importantly do not use a name that has already been assigned to some other value, unless you have good reason to do so. For example, variable `pi` exists in R by default. So does keyword variables like `TRUE`, `FALSE`, `NA`, etc. Do not use these names while creating an object. Doing so will override their default value and you have to restart the R session to revert back. 
+```r
+pi
+TRUE
+FALSE
+NA
+```
+R is case sensitive meaning `TRUE` and `True` are not the same. Try it yourself and see what you get!
+
+So far, you have created two objects, `a` and `aapl`. In the top right hand pane of RStudio, you will see these two objects listed on the 'Environment' tab. If you click on the down arrow by the `List` icon and select `Grid` view, you will see additional details about these objects such as type, length, size and value. 
+
+## Data Types
+
+Lets look at the type in detail because it is very important to know how R deals with different types of data. Type of an object, also known as its data type, tells us the kind of operations that is possible with that object. For example, `a` has numeric data type and therefore arithmetic operations can be performed to it. `aapl` is of character type and thus arithmetic operators cannot be applied to it. If you do, you will receive an error: 
+```r
+aapl+1
+aapl*3
+aapl/3
+```
+The error message tells you that you are applying a binary operator to a non-numeric value. 
+

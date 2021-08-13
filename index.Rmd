@@ -12,32 +12,40 @@ output:
     github-repo: tdmdal/r-intro
 ---
 
-# Welcome {-}
+# Welcome to Intro to R for Business{-}
 
 ## What's R {-}
 
-R is...
+R is a powerful computer language for statistical computing. R is free, open source and available on every major platform. R has a huge set of packages for statistical modelling, machine learning, visualization as well as for communicating the results of your analysis in the form of beautiful interactive apps. RStudio, the Integrated Development Environment (IDE), provides a tailored space for data science needs such as effective data handling and storage, interactive data analysis, implementing statistical and machine learning techniques and graphical facilities. 
+
+R also has a diverse and welcoming community such as the R meetups and #rstats twitter community. 
+
+For more information on R, visit the official [R-project](https://www.r-project.org/about.html) website.
 
 
 ## About this site {-}
 
-This is a companion site for your R Intro tutorial, a prerequisite for RSM...
+Intro to R for Business is a companion site for your Intro to R workshops, a prerequisite for select courses within Rotman programs. This site provides information on the workshops, items covered during the workshops, additional resources such as practice questions, links to other R books and tutorial to aid for further learning.
+
+As with any language the initial learning curve can be steep. So we advise that you use R often and regularly to maintain momentum and build your R skill.  
 
 ## R Workshop {-}
+
+### Event details {-}
 
 **Intro to Data Analysis (in R)**
 
 **Session 1**  
 **Date:** Thursday, September 16, 2021  
 **Time:** 6:00 PM - 8:00 PM (EST)  
-**Location:** TBD  
+**Location:** Online  
  
 **Session 2**  
 **Date:** Thursday, September 23, 2021  
 **Time:** 6:00 PM - 8:00 PM (EST)  
-**Location:** TBD  
+**Location:** Online  
 
 **Contact:** 
 
-## R Workshop syllabus {-}
+### Syllabus {-}
 TBD

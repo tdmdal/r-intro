@@ -23,6 +23,8 @@ There are two versions of RStudio, Desktop and Server, available to download for
 
 When you open RStudio, you will see three panes. The largest pane is the console window, which is exactly the same as what you would see if you opened R application. This is where you will write your R codes and run them. The remaining two panes serve as text editor, graphics window, debugger, file manager, package manager and much more. You will learn about these functions as we require them. 
 
+ADD MORE ON HOW TO USE RSTUDIO
+
 __Note:__ When a new release of the R and/or RStudio is available for your computer, you can follow the same installation process to upgrade to the new version of the software. 
 
 <!-- # Run R and RStudio in the cloud -->
