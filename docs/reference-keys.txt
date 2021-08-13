@@ -1,4 +1,4 @@
-data-in-r
+r-basics
 operators
 objects
 creating-objects

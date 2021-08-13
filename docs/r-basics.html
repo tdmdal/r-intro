@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>1 R Basics | Intro to R</title>
+  <meta name="description" content="1 R Basics | Intro to R" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="1 R Basics | Intro to R" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 R Basics | Intro to R" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="programming-structure.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Intro to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome to Intro to R for Business</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#whats-r"><i class="fa fa-check"></i>What’s R</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-this-site"><i class="fa fa-check"></i>About this site</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-workshop"><i class="fa fa-check"></i>R Workshop</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#event-details"><i class="fa fa-check"></i>Event details</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#syllabus"><i class="fa fa-check"></i>Syllabus</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>Part I. R Programming Basics</b></span></li>
+<li class="chapter" data-level="1" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>1</b> R Basics</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-basics.html"><a href="r-basics.html#operators"><i class="fa fa-check"></i><b>1.1</b> Operators</a></li>
+<li class="chapter" data-level="1.2" data-path="r-basics.html"><a href="r-basics.html#objects"><i class="fa fa-check"></i><b>1.2</b> Objects</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="r-basics.html"><a href="r-basics.html#creating-objects"><i class="fa fa-check"></i><b>1.2.1</b> Creating Objects</a></li>
+<li class="chapter" data-level="1.2.2" data-path="r-basics.html"><a href="r-basics.html#naming-objects"><i class="fa fa-check"></i><b>1.2.2</b> Naming Objects</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="r-basics.html"><a href="r-basics.html#data-types"><i class="fa fa-check"></i><b>1.3</b> Data Types</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="r-basics.html"><a href="r-basics.html#numeric"><i class="fa fa-check"></i><b>1.3.1</b> Numeric</a></li>
+<li class="chapter" data-level="1.3.2" data-path="r-basics.html"><a href="r-basics.html#integer"><i class="fa fa-check"></i><b>1.3.2</b> Integer</a></li>
+<li class="chapter" data-level="1.3.3" data-path="r-basics.html"><a href="r-basics.html#logical"><i class="fa fa-check"></i><b>1.3.3</b> Logical</a></li>
+<li class="chapter" data-level="1.3.4" data-path="r-basics.html"><a href="r-basics.html#character"><i class="fa fa-check"></i><b>1.3.4</b> Character</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="r-basics.html"><a href="r-basics.html#data-structures"><i class="fa fa-check"></i><b>1.4</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="r-basics.html"><a href="r-basics.html#vectors"><i class="fa fa-check"></i><b>1.4.1</b> Vectors</a></li>
+<li class="chapter" data-level="1.4.2" data-path="r-basics.html"><a href="r-basics.html#matrices-and-arrays"><i class="fa fa-check"></i><b>1.4.2</b> Matrices and Arrays</a></li>
+<li class="chapter" data-level="1.4.3" data-path="r-basics.html"><a href="r-basics.html#lists"><i class="fa fa-check"></i><b>1.4.3</b> Lists</a></li>
+<li class="chapter" data-level="1.4.4" data-path="r-basics.html"><a href="r-basics.html#data-frames"><i class="fa fa-check"></i><b>1.4.4</b> Data frames</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="programming-structure.html"><a href="programming-structure.html"><i class="fa fa-check"></i><b>2</b> Programming structure</a></li>
+<li class="chapter" data-level="3" data-path="programming-projects.html"><a href="programming-projects.html"><i class="fa fa-check"></i><b>3</b> Programming projects</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="starting.html"><a href="starting.html"><i class="fa fa-check"></i><b>A</b> Install R and RStudio</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="starting.html"><a href="starting.html#windows"><i class="fa fa-check"></i><b>A.1</b> Windows</a></li>
+<li class="chapter" data-level="A.2" data-path="starting.html"><a href="starting.html#mac"><i class="fa fa-check"></i><b>A.2</b> Mac</a></li>
+<li class="chapter" data-level="A.3" data-path="starting.html"><a href="starting.html#linux"><i class="fa fa-check"></i><b>A.3</b> Linux</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="install-rstudio.html"><a href="install-rstudio.html"><i class="fa fa-check"></i><b>B</b> Install RStudio</a></li>
+<li class="chapter" data-level="C" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>C</b> R packages</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="r-packages.html"><a href="r-packages.html#installing-r-packages"><i class="fa fa-check"></i><b>C.1</b> Installing R packages</a></li>
+<li class="chapter" data-level="C.2" data-path="r-packages.html"><a href="r-packages.html#loading-r-packages"><i class="fa fa-check"></i><b>C.2</b> Loading R packages</a></li>
+<li class="chapter" data-level="C.3" data-path="r-packages.html"><a href="r-packages.html#updating-r-package"><i class="fa fa-check"></i><b>C.3</b> Updating R package</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="r-online-learning-resources.html"><a href="r-online-learning-resources.html"><i class="fa fa-check"></i><b>D</b> R online learning resources</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Intro to R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-basics" class="section level1" number="1">
+<h1><span class="header-section-number">1</span> R Basics</h1>
+<div id="operators" class="section level2" number="1.1">
+<h2><span class="header-section-number">1.1</span> Operators</h2>
+<p>Let us start with the basic. Almost all programming languages can be used as a calculator. You can use the <code>+</code>, <code>-</code>, <code>*</code> and <code>/</code> symbols to perform addition, subtraction, multiplication and division between two numeric values. These are called <em>arithmetic operators</em>. Type the following lines of code on the RStudio console pane and check the results of these operations:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="r-basics.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb1-2"><a href="r-basics.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">-</span> <span class="dv">5</span></span>
+<span id="cb1-3"><a href="r-basics.html#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fl">4.5</span><span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb1-4"><a href="r-basics.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span><span class="sc">/</span><span class="dv">2</span></span></code></pre></div>
+<p>The <code>[1]</code> in front of the results indicates that the value after it is the first value of the result for that operation.</p>
+<p>Some other arithmetic operators are <code>^</code> or <code>**</code> for exponentiation, <code>%%</code> <a href="https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/what-is-modular-arithmetic">modulus</a> and <code>%/%</code> for <a href="https://mathworld.wolfram.com/IntegerDivision.html">integer division</a>.</p>
+<p><em>Logical operators</em> perform comparison between two values. Logical operators return either <code>TRUE</code> or <code>FALSE</code>. Type and run the following lines of code and check the results:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="r-basics.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">&lt;</span> <span class="dv">4</span> <span class="co"># less than</span></span>
+<span id="cb2-2"><a href="r-basics.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">&gt;</span> <span class="dv">1</span> <span class="co"># greater than</span></span>
+<span id="cb2-3"><a href="r-basics.html#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">==</span><span class="dv">1</span>  <span class="co"># exactly equal to</span></span>
+<span id="cb2-4"><a href="r-basics.html#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">&gt;=</span><span class="dv">5</span>  <span class="co"># greater than and equal to</span></span>
+<span id="cb2-5"><a href="r-basics.html#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">!=</span><span class="dv">6</span>  <span class="co"># not equal to</span></span></code></pre></div>
+<p>A very useful <strong>binary operator</strong> in R is denoted by the colon <code>:</code>. Binary operators are operators that perform actions with two values. The colon operator generates regular sequences. It can also create sequence in reverse order. Whether the sequence is increasing or decreasing depends whether the value before the operator is less than or greater than the value after the operator.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="r-basics.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">15</span></span>
+<span id="cb3-2"><a href="r-basics.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">15</span><span class="sc">:</span><span class="dv">1</span></span></code></pre></div>
+</div>
+<div id="objects" class="section level2" number="1.2">
+<h2><span class="header-section-number">1.2</span> Objects</h2>
+<div id="creating-objects" class="section level3" number="1.2.1">
+<h3><span class="header-section-number">1.2.1</span> Creating Objects</h3>
+<p>The power of programming lies in its ability to not only manipulate numeric values but also textual values. Any value can be stored as an object in a computer program and then referenced later for further manipulation. The <em>assignment operator</em>, <code>&lt;-</code>, is used to assign a value to an object. It comprises the less than symbol <code>&lt;</code> and a hyphen <code>-</code>. Manipulation to the value can be done by manipulating the object.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="r-basics.html#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb4-2"><a href="r-basics.html#cb4-2" aria-hidden="true" tabindex="-1"></a>a<span class="sc">+</span><span class="dv">5</span></span>
+<span id="cb4-3"><a href="r-basics.html#cb4-3" aria-hidden="true" tabindex="-1"></a>a<span class="sc">*</span><span class="fl">2.5</span></span>
+<span id="cb4-4"><a href="r-basics.html#cb4-4" aria-hidden="true" tabindex="-1"></a>a<span class="sc">&gt;=</span><span class="dv">5</span></span></code></pre></div>
+<p>Object provide a way of storing data with a descriptive name such that the programs can be easily read and understood by its readers. For example, we can create an object <code>aapl</code>, which is the ticker for the company Apple Inc. and assign it a value of <code>274.5b</code>, which is Apple’s revenue in billions for the year 2020. Now, every time you type <code>aapl</code> on the console, it will print <code>274.5b</code>, unless you reassign a different value to this object.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="r-basics.html#cb5-1" aria-hidden="true" tabindex="-1"></a>aapl <span class="ot">&lt;-</span> <span class="st">&quot;274.5b&quot;</span></span>
+<span id="cb5-2"><a href="r-basics.html#cb5-2" aria-hidden="true" tabindex="-1"></a>aapl</span></code></pre></div>
+<p>Note: <code>=</code> can also be used as an assignment operator but is not recommended for R.In some cases it is forbidden.</p>
+</div>
+<div id="naming-objects" class="section level3" number="1.2.2">
+<h3><span class="header-section-number">1.2.2</span> Naming Objects</h3>
+<p>Naming an object is a not that easy. You want the name to be meaningful and easily understood but not very lengthy. Objects with multiple words can be created by joining them with an underscore or a dot. You can also capitalize the different words. Object names cannot start with a number or a dot. Avoid using alphanumeric character in object names.</p>
+<p>Most importantly do not use a name that has already been assigned to some other value, unless you have good reason to do so. For example, variable <code>pi</code> exists in R by default. So does keyword variables like <code>TRUE</code>, <code>FALSE</code>, <code>NA</code>, etc. Do not use these names while creating an object. Doing so will override their default value and you have to restart the R session to revert back.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="r-basics.html#cb6-1" aria-hidden="true" tabindex="-1"></a>pi</span>
+<span id="cb6-2"><a href="r-basics.html#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span></span>
+<span id="cb6-3"><a href="r-basics.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span></span>
+<span id="cb6-4"><a href="r-basics.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span></span></code></pre></div>
+<p>R is case sensitive meaning <code>TRUE</code> and <code>True</code> are not the same. Try it yourself and see what you get!</p>
+<p>So far, you have created two objects, <code>a</code> and <code>aapl</code>. In the top right hand pane of RStudio, you will see these two objects listed on the ‘Environment’ tab. If you click on the down arrow by the <code>List</code> icon and select <code>Grid</code> view, you will see additional details about these objects such as type, length, size and value.</p>
+</div>
+</div>
+<div id="data-types" class="section level2" number="1.3">
+<h2><span class="header-section-number">1.3</span> Data Types</h2>
+<p>Lets look at the type in detail because it is very important to know how R deals with different types of data. Type of an object, also known as its data type, tells us the kind of operations that is possible with that object. For example, <code>a</code> has numeric data type and therefore arithmetic operations can be performed to it. <code>aapl</code> is of character type and thus arithmetic operators cannot be applied to it. If you do, you will receive an error:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb7-2"><a href="r-basics.html#cb7-2" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb7-3"><a href="r-basics.html#cb7-3" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">/</span><span class="dv">3</span></span></code></pre></div>
+<p>The error message tells you that you are applying a binary operator to a non-numeric value.</p>
+<p>Four types of basic data types we will focus on are - numeric, integer, logical, and character.</p>
+<div id="numeric" class="section level3" number="1.3.1">
+<h3><span class="header-section-number">1.3.1</span> Numeric</h3>
+<p>Numeric data are contains decimal numbers. Although, it may also include values without decimal numbers. In most cases, numeric data is chosen by default in R for numeric values.</p>
+</div>
+<div id="integer" class="section level3" number="1.3.2">
+<h3><span class="header-section-number">1.3.2</span> Integer</h3>
+<p>Integer are whole numbers, meaning numbers without decimal.</p>
+<p>R provides numerous functions to check the data type of an object and to modify it as well.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-basics.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(a)</span>
+<span id="cb8-2"><a href="r-basics.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(a)</span></code></pre></div>
+<p>Notice the results of the two operations. Even though <code>a</code> does not have any decimal point, R has stored it as numeric instead of integer type. While R is able to automatically distinguish data types in most cases, often you will have to explicitly tell R which data type you want for a given object.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(a)</span>
+<span id="cb9-2"><a href="r-basics.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(a)</span></code></pre></div>
+</div>
+<div id="logical" class="section level3" number="1.3.3">
+<h3><span class="header-section-number">1.3.3</span> Logical</h3>
+<p>Logical data take either <code>TRUE</code> or <code>FALSE</code> values. Logical data type result from logical operations:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-basics.html#cb10-1" aria-hidden="true" tabindex="-1"></a>logical_expression <span class="ot">&lt;-</span> (a <span class="sc">&gt;</span> <span class="dv">5</span>)</span>
+<span id="cb10-2"><a href="r-basics.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(logical_expression)</span></code></pre></div>
+<p><code>NA</code> is also considered to be of logical data type and signifies missing or null values. It is a special type of logical.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-basics.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="cn">NA</span>)</span></code></pre></div>
+</div>
+<div id="character" class="section level3" number="1.3.4">
+<h3><span class="header-section-number">1.3.4</span> Character</h3>
+<p>Finally, character data types represent string. String in computer program refers to any letter, digit, punctuation and extra characters enclosed inside quotation marks.
+<code>aapl</code>, on the other hand, is stored as character because while creating this object we enclosed its values in quotation marks.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-basics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(aapl)</span></code></pre></div>
+<p>Data type modifications must be done with careful consideration to avoid unexpected results. For example, note the data loss occurred as a result of the following data type conversions below:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-basics.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">5.9</span>)</span>
+<span id="cb13-2"><a href="r-basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(aapl)</span></code></pre></div>
+</div>
+</div>
+<div id="data-structures" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> Data Structures</h2>
+<p>Now that you have been introduced to objects and data types, let’s look at some of the main data structures provided by R to store real world data.</p>
+<div id="vectors" class="section level3" number="1.4.1">
+<h3><span class="header-section-number">1.4.1</span> Vectors</h3>
+<p>Vectors are the simplest data structure in R. So far the objects we have created are <strong>scalar</strong> vectors, scalar because they contain a single value. Vectors with more than one value can be created as follows:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-basics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">274.5</span>, <span class="fl">143.5</span>)</span>
+<span id="cb14-2"><a href="r-basics.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(revenue)</span>
+<span id="cb14-3"><a href="r-basics.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(a)</span></code></pre></div>
+<p>Vectors can contains any data type but it must all be of the same type. In other words, a vector cannot have mixtures of data types. There is one exception - <code>NA</code> can be included within vectors of any other data type to denote missing data in that vector.</p>
+</div>
+<div id="matrices-and-arrays" class="section level3" number="1.4.2">
+<h3><span class="header-section-number">1.4.2</span> Matrices and Arrays</h3>
+<p>A Matrix is a vector that has additional attributes called dimensions. Matrices have only two dimensions. Arrays are multidimensional. Again, all elements in a matrix or array must be of same data type.</p>
+<p>Matrix and array can be created by using the <code>matrix()</code> and <code>array()</code> functions. Below is a use-case:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-basics.html#cb15-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb15-2"><a href="r-basics.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
+<p>The above line of code creates a matrix containing numbers from 1 to 6, as indicated by <code>1:6</code>. It has three rows, as indicated by <code>nrow = 3</code> and the values 1 through 6 are filled row-wise, as indicated by <code>byrow = TRUE</code>. You may define the number of columns as well using <code>ncol=2</code>. However, if you don’,t R will try to figure it out based on the number of values you passed.</p>
+<p>It can be useful to give row and column names when working with a matrix.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-basics.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;row1&#39;</span>, <span class="st">&#39;row2&#39;</span>, <span class="st">&#39;row3&#39;</span>)</span>
+<span id="cb16-2"><a href="r-basics.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;col1&#39;</span>, <span class="st">&#39;col2&#39;</span>)</span>
+<span id="cb16-3"><a href="r-basics.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
+<p>Matrix operation can be performed by using the arithmetic operator on matrices.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-basics.html#cb17-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> <span class="dv">10</span>       <span class="co"># add scalar to each element</span></span>
+<span id="cb17-2"><a href="r-basics.html#cb17-2" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> <span class="dv">2</span>        <span class="co"># multiply each element by scalar</span></span>
+<span id="cb17-3"><a href="r-basics.html#cb17-3" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> amatrix  <span class="co"># matrix addition</span></span>
+<span id="cb17-4"><a href="r-basics.html#cb17-4" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> amatrix  <span class="co"># element by element products</span></span></code></pre></div>
+<p>Matrix multiplication can be performed using <code>%*%</code> as long as it is possible:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="r-basics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>bmatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb18-2"><a href="r-basics.html#cb18-2" aria-hidden="true" tabindex="-1"></a>amatrix<span class="sc">%*%</span>bmatrix</span></code></pre></div>
+<p>When using the array function, the number of dimensions can be defined using <code>dim</code>:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-basics.html#cb19-1" aria-hidden="true" tabindex="-1"></a>my_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb19-2"><a href="r-basics.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_array)</span></code></pre></div>
+<p>The above example creates a 3 dimensional array. It has two rows, three columns and four of those 2x3 matrices.</p>
+</div>
+<div id="lists" class="section level3" number="1.4.3">
+<h3><span class="header-section-number">1.4.3</span> Lists</h3>
+<p>Lists are useful because they can store multiple data types inside of it. In fact we can even store matrices and arrays if we need to.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-basics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(aapl, amatrix, my_array)</span>
+<span id="cb20-2"><a href="r-basics.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
+</div>
+<div id="data-frames" class="section level3" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> Data frames</h3>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="programming-structure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": false,
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
