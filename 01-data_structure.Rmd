@@ -1,6 +1,6 @@
 # (PART\*) Part I. R Programming Basics {-}
 
-# Data in R
+# R Basics
 
 ## Operators  
 
