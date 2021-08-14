@@ -15,7 +15,7 @@ The `[1]` in front of the results indicates that the value after it is the first
 
 Some other arithmetic operators are `^` or `**` for exponentiation, `%%` [modulus](https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/what-is-modular-arithmetic) and `%/%` for [integer division](https://mathworld.wolfram.com/IntegerDivision.html). 
 
-_Logical operators_ perform comparison between two values. Logical operators return either `TRUE` or `FALSE`. Type and run the following lines of code and check the results:
+_Logical operators_ perform comparison between two values. Logical operations return either `TRUE` or `FALSE`. Type and run the following lines of code and check the results:
 ```r
 5 < 4 # less than
 2 > 1 # greater than
@@ -24,11 +24,13 @@ _Logical operators_ perform comparison between two values. Logical operators ret
 5!=6  # not equal to
 ```
 
-A very useful __binary operator__ in R is denoted by the colon `:`. Binary operators are operators that perform actions with two values. The colon operator generates regular sequences. It can also create sequence in reverse order. Whether the sequence is increasing or decreasing depends whether the value before the operator is less than or greater than the value after the operator. 
+A very useful __binary operator__ in R is denoted by the colon `:`. Binary operators are operators that perform actions with two values. The colon operator generates regular sequences. It can also create sequence in reverse order. Whether the sequence is increasing or decreasing depends on whether the value before the operator is less than or greater than the value after the operator. 
 ```r
 1:15
 15:1
 ```
+
+There are many other operators in R and we learn about them as we go through the remaining topics. 
 
 ## Objects  
 
@@ -46,12 +48,12 @@ aapl <- "274.5b"
 aapl
 ```
 
-Note: `=` can also be used as an assignment operator but is not recommended for R.In some cases it is forbidden. 
+Note: `=` can also be used as an assignment operator but is not recommended for R. In some cases it is forbidden. 
 
 ### Naming Objects  
 Naming an object is a not that easy. You want the name to be meaningful and easily understood but not very lengthy. Objects with multiple words can be created by joining them with an underscore or a dot. You can also capitalize the different words. Object names cannot start with a number or a dot. Avoid using alphanumeric character in object names. 
 
-Most importantly do not use a name that has already been assigned to some other value, unless you have good reason to do so. For example, variable `pi` exists in R by default. So does keyword variables like `TRUE`, `FALSE`, `NA`, etc. Do not use these names while creating an object. Doing so will override their default value and you have to restart the R session to revert back. 
+Most importantly do not use a name that has already been assigned to some other value, unless you have good reason to do so. For example, variable `pi` exists in R by default. So does keyword variables like `TRUE`, `FALSE`, `NA`, etc. Do not use these names while creating an object. Doing so will override their default value and you will have to restart the R session to revert them back. 
 ```r
 pi
 TRUE
@@ -103,8 +105,7 @@ is.logical(NA)
 ```
 
 ### Character 
-Finally, character data types represent string. String in computer program refers to any letter, digit, punctuation and extra characters enclosed inside quotation marks. 
-`aapl`, on the other hand, is stored as character because while creating this object we enclosed its values in quotation marks. 
+Finally, character data types represent string. String in computer program refers to any letter, digit, punctuation and extra characters enclosed inside quotation marks. `aapl`, is stored as character because while creating this object we enclosed its values in quotation marks. 
 ```r
 is.character(aapl)
 ```
@@ -124,19 +125,25 @@ revenue = c(274.5, 143.5)
 print(revenue)
 is.vector(a)
 ```
-Vectors can contains any data type but it must all be of the same type. In other words, a vector cannot have mixtures of data types. There is one exception - `NA` can be included within vectors of any other data type to denote missing data in that vector.
+Vectors can contains any data type but it must all be of the same type. In other words, a vector cannot have mixtures of data types. There is one exception, which is with the `NA` data type. `NA` can be included within vectors of any other data type to denote missing data in that vector.
 
 ### Matrices and Arrays
-A Matrix is a vector that has additional attributes called dimensions. Matrices have only two dimensions. Arrays are multidimensional. Again, all elements in a matrix or array must be of same data type.  
+A matrix is a vector that has additional attributes called dimensions. Matrices have only two dimensions. Arrays are multidimensional. Again, all elements in a matrix or array must be of same data type.  
 
-Matrix and array can be created by using the `matrix()` and `array()` functions. Below is a use-case:
+Matrix and array can be created by using the `matrix()` and `array()` functions. Below is an example:
 ```r
 amatrix <- matrix(1:6, nrow = 3, byrow=TRUE)
 print(amatrix)
 ```
-The above line of code creates a matrix containing numbers from 1 to 6, as indicated by `1:6`. It has three rows, as indicated by `nrow = 3` and the values 1 through 6 are filled row-wise, as indicated by `byrow = TRUE`. You may define the number of columns as well using `ncol=2`. However, if you don',t R will try to figure it out based on the number of values you passed. 
+The above line of code creates a matrix containing numbers from 1 to 6, as indicated by `1:6`. It has three rows, as indicated by `nrow = 3` and the values 1 through 6 are filled row-wise, as indicated by `byrow = TRUE`. You may define the number of columns as well using `ncol=2`. However, if you don't R will try to figure it out based on the number of values you passed. 
 
-It can be useful to give row and column names when working with a matrix. 
+When using the array function, the number of dimensions can be defined using `dim`. The example below creates a 3 dimensional array. It has two rows, three columns and four of those 2x3 matrices.
+```r
+my_array <- array(1:12, dim = c(2, 3, 4))
+print(my_array)
+```
+
+It can be useful to give names to rows and columns when working with a matrix. 
 ```r
 rownames(amatrix) = c('row1', 'row2', 'row3')
 colnames(amatrix) = c('col1', 'col2')
@@ -150,24 +157,29 @@ amatrix * 2        # multiply each element by scalar
 amatrix + amatrix  # matrix addition
 amatrix * amatrix  # element by element products
 ```
-Matrix multiplication can be performed using `%*%` as long as it is possible:
+Matrix multiplication can be performed using `%*%` operator as long as the operation is mathematically possible:
 ```r
 bmatrix <- matrix(1:4, nrow=2)
 amatrix%*%bmatrix
 ```
 
-When using the array function, the number of dimensions can be defined using `dim`:
-```r
-my_array <- array(1:12, dim = c(2, 3, 4))
-print(my_array)
-```
-The above example creates a 3 dimensional array. It has two rows, three columns and four of those 2x3 matrices.
-
 ### Lists  
-Lists are useful because they can store multiple data types inside of it. In fact we can even store matrices and arrays if we need to. 
+Lists are useful because they can store multiple data types inside of it. In fact we can even store matrices, arrays or list itself if we need to. Lists are ideal for storing non-rectangular data. `List()` function can be used to create list. 
 ```r
 my_list <- list(aapl, amatrix, my_array)
 print(my_list)
 ```
+Each element of a list can be named during its constructions:
+```r
+my_list <- list(char = aapl, 
+                mat = amatrix, 
+                arr = my_array)
+print(my_list)
+```
+Now we can use the `$` operator to access individual item in the list using its name:
+```r
+my_list$mat
+```
 
 ### Data frames  
+Data frame are the most commonly used data structure to store data. It is a powerful two-dimensional object comprising rows and columns. The difference between data frame and matrix is that data frame can store mixture of data types. It is similar to an excel file. An easy way to understand is that data frames are basically a bunch of vectors, with their own data types and the same length, concatenated together. Below let's create a dataframe from three vectors:
