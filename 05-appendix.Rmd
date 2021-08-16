@@ -64,3 +64,27 @@ update.packages( c('dplyr', 'tidyr', 'stringr') )
 Restarting R session is required after updating packages. Simply close RStudio and reopen it to begin using the updated version of the packages.  
 
 # R online learning resources
+
+* R Programming
+    * [Hands-on Programming with R](https://rstudio-education.github.io/hopr/) (for absolute beginners, i.e., if you have never programmed before)
+    * [R for Data Science](https://r4ds.had.co.nz/) (learn how to manipulate, analyze and visualize data using R’s Tidyverse packages)
+    * [Advanced R](https://adv-r.hadley.nz/) (if you plan to be really good at R)
+    * [R Graphics Cookbook](https://r-graphics.org/)
+    * [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/)
+    * [The R Graph Gallery](https://www.r-graph-gallery.com/) (R graph samples with code)
+    * [R Cheat Sheets](https://www.rstudio.com/resources/cheatsheets/) (cheat sheets for many popular R packages)
+
+    
+* R for Empirical Analysis
+    * [Introduction to Econometrics with R](https://www.econometrics-with-r.org/)
+    * [Forecasting: Principles and Practice](https://otexts.com/fpp2/)
+    * [Financial Engineering Analytics: A Practice Manual Using R](https://bookdown.org/wfoote01/faur/)
+
+* R and Machine Learning
+    * [An Introduction to Statistical Learning / with Applications in R](https://www.statlearning.com/) (you can download the book and its R code)
+    * [R Interface to Tensorflow](https://tensorflow.rstudio.com/) (deep learning in R)
+        
+* Other Tutorials on Econometrics & Statistics using R
+    * [A Short R Tutorial](https://data.princeton.edu/R) by Germán Rodríguez
+    * [Introductory Econometrics Examples](https://justinmshea.github.io/wooldridge/articles/Introductory-Econometrics-Examples.html) (data and examples from Wooldridge)
+    * [STAT545](https://stat545.com/) by [Jenny Bryan](https://jennybryan.org/) : Data wrangling, exploration, and analysis with R
