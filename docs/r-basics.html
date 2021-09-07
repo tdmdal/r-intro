@@ -31,7 +31,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="programming-structure.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -165,19 +165,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4.1" data-path="r-basics.html"><a href="r-basics.html#vectors"><i class="fa fa-check"></i><b>1.4.1</b> Vectors</a></li>
 <li class="chapter" data-level="1.4.2" data-path="r-basics.html"><a href="r-basics.html#matrices-and-arrays"><i class="fa fa-check"></i><b>1.4.2</b> Matrices and Arrays</a></li>
 <li class="chapter" data-level="1.4.3" data-path="r-basics.html"><a href="r-basics.html#lists"><i class="fa fa-check"></i><b>1.4.3</b> Lists</a></li>
-<li class="chapter" data-level="1.4.4" data-path="r-basics.html"><a href="r-basics.html#data-frames"><i class="fa fa-check"></i><b>1.4.4</b> Data frames</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="programming-structure.html"><a href="programming-structure.html"><i class="fa fa-check"></i><b>2</b> Programming structure</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="programming-structure.html"><a href="programming-structure.html#three-basic-control-flows"><i class="fa fa-check"></i><b>2.1</b> Three basic control flows</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="programming-structure.html"><a href="programming-structure.html#sequence"><i class="fa fa-check"></i><b>2.1.1</b> Sequence</a></li>
-<li class="chapter" data-level="2.1.2" data-path="programming-structure.html"><a href="programming-structure.html#conditional-execution"><i class="fa fa-check"></i><b>2.1.2</b> Conditional execution</a></li>
-<li class="chapter" data-level="2.1.3" data-path="programming-structure.html"><a href="programming-structure.html#iteration"><i class="fa fa-check"></i><b>2.1.3</b> Iteration</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="programming-structure.html"><a href="programming-structure.html#functions"><i class="fa fa-check"></i><b>2.2</b> Functions</a></li>
-</ul></li>
+<li class="chapter" data-level="2" data-path="programming-structure.html"><a href="programming-structure.html"><i class="fa fa-check"></i><b>2</b> Programming structure</a></li>
 <li class="chapter" data-level="3" data-path="programming-projects.html"><a href="programming-projects.html"><i class="fa fa-check"></i><b>3</b> Programming projects</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="starting.html"><a href="starting.html"><i class="fa fa-check"></i><b>A</b> Install R and RStudio</a>
@@ -257,45 +247,60 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb6-4"><a href="r-basics.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span></span></code></pre></div>
 <p>R is case sensitive meaning <code>TRUE</code> and <code>True</code> are not the same. Try it yourself and see what you get!</p>
 <p>So far, you have created two objects, <code>a</code> and <code>aapl</code>. In the top right hand pane of RStudio, you will see these two objects listed on the ‘Environment’ tab. If you click on the down arrow by the <code>List</code> icon and select <code>Grid</code> view, you will see additional details about these objects such as type, length, size and value.</p>
+<p><strong>Exercise</strong></p>
+<p>Create an object “company” and assign it a value of “AAPL”. Create another object “revenue” and assign it a value of 274.5.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
 </div>
 </div>
 <div id="data-types" class="section level2" number="1.3">
 <h2><span class="header-section-number">1.3</span> Data Types</h2>
 <p>Lets look at the type in detail because it is very important to know how R deals with different types of data. Type of an object, also known as its data type, tells us the kind of operations that is possible with that object. For example, <code>a</code> has numeric data type and therefore arithmetic operations can be performed to it. <code>aapl</code> is of character type and thus arithmetic operators cannot be applied to it. If you do, you will receive an error:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="r-basics.html#cb7-1" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">+</span><span class="dv">1</span></span>
-<span id="cb7-2"><a href="r-basics.html#cb7-2" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">*</span><span class="dv">3</span></span>
-<span id="cb7-3"><a href="r-basics.html#cb7-3" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">/</span><span class="dv">3</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-basics.html#cb8-1" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">+</span><span class="dv">1</span></span>
+<span id="cb8-2"><a href="r-basics.html#cb8-2" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">*</span><span class="dv">3</span></span>
+<span id="cb8-3"><a href="r-basics.html#cb8-3" aria-hidden="true" tabindex="-1"></a>aapl<span class="sc">/</span><span class="dv">3</span></span></code></pre></div>
 <p>The error message tells you that you are applying a binary operator to a non-numeric value.</p>
 <p>Four types of basic data types we will focus on are - numeric, integer, logical, and character.</p>
 <div id="numeric" class="section level3" number="1.3.1">
 <h3><span class="header-section-number">1.3.1</span> Numeric</h3>
 <p>Numeric data are contains decimal numbers. Although, it may also include values without decimal numbers. In most cases, numeric data is chosen by default in R for numeric values.</p>
+<p><strong>Exercise</strong></p>
+<p>Check whether the data type of the variable “revenue”, which you created in section 1.2, is numeric.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
 </div>
 <div id="integer" class="section level3" number="1.3.2">
 <h3><span class="header-section-number">1.3.2</span> Integer</h3>
 <p>Integer are whole numbers, meaning numbers without decimal.</p>
 <p>R provides numerous functions to check the data type of an object and to modify it as well.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="r-basics.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(a)</span>
-<span id="cb8-2"><a href="r-basics.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-basics.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.numeric</span>(a)</span>
+<span id="cb10-2"><a href="r-basics.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(a)</span></code></pre></div>
 <p>Notice the results of the two operations. Even though <code>a</code> does not have any decimal point, R has stored it as numeric instead of integer type. While R is able to automatically distinguish data types in most cases, often you will have to explicitly tell R which data type you want for a given object.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="r-basics.html#cb9-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(a)</span>
-<span id="cb9-2"><a href="r-basics.html#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-basics.html#cb11-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(a)</span>
+<span id="cb11-2"><a href="r-basics.html#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.integer</span>(a)</span></code></pre></div>
+<p><strong>Exercise</strong></p>
+<p>Convert the data type of variable “revenue”, which you created in Section 1.2, into integer. What is a possible danger of such data conversion?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-basics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
 </div>
 <div id="logical" class="section level3" number="1.3.3">
 <h3><span class="header-section-number">1.3.3</span> Logical</h3>
 <p>Logical data take either <code>TRUE</code> or <code>FALSE</code> values. Logical data type result from logical operations:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="r-basics.html#cb10-1" aria-hidden="true" tabindex="-1"></a>logical_expression <span class="ot">&lt;-</span> (a <span class="sc">&gt;</span> <span class="dv">5</span>)</span>
-<span id="cb10-2"><a href="r-basics.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(logical_expression)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-basics.html#cb13-1" aria-hidden="true" tabindex="-1"></a>logical_expression <span class="ot">&lt;-</span> (a <span class="sc">&gt;</span> <span class="dv">5</span>)</span>
+<span id="cb13-2"><a href="r-basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(logical_expression)</span></code></pre></div>
 <p><code>NA</code> is also considered to be of logical data type and signifies missing or null values. It is a special type of logical.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="r-basics.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="cn">NA</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-basics.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.logical</span>(<span class="cn">NA</span>)</span></code></pre></div>
+<p><strong>Exercise</strong></p>
+<p>Create a logical expression and check the data type.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-basics.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
 </div>
 <div id="character" class="section level3" number="1.3.4">
 <h3><span class="header-section-number">1.3.4</span> Character</h3>
 <p>Finally, character data types represent string. String in computer program refers to any letter, digit, punctuation and extra characters enclosed inside quotation marks. <code>aapl</code>, is stored as character because while creating this object we enclosed its values in quotation marks.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="r-basics.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(aapl)</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-basics.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.character</span>(aapl)</span></code></pre></div>
 <p>Data type modifications must be done with careful consideration to avoid unexpected results. For example, note the data loss occurred as a result of the following data type conversions below:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="r-basics.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">5.9</span>)</span>
-<span id="cb13-2"><a href="r-basics.html#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(aapl)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-basics.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.integer</span>(<span class="fl">5.9</span>)</span>
+<span id="cb17-2"><a href="r-basics.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(aapl)</span></code></pre></div>
+<p><strong>Exercise</strong></p>
+<p>Check if the data type of variable “company”, which you created in Section 1.2 is a character.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="r-basics.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
 </div>
 </div>
 <div id="data-structures" class="section level2" number="1.4">
@@ -304,50 +309,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="vectors" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Vectors</h3>
 <p>Vectors are the simplest data structure in R. So far the objects we have created are <strong>scalar</strong> vectors, scalar because they contain a single value. Vectors with more than one value can be created as follows:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="r-basics.html#cb14-1" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">274.5</span>, <span class="fl">143.5</span>)</span>
-<span id="cb14-2"><a href="r-basics.html#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(revenue)</span>
-<span id="cb14-3"><a href="r-basics.html#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(a)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-basics.html#cb19-1" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">274.5</span>, <span class="fl">143.5</span>)</span>
+<span id="cb19-2"><a href="r-basics.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(revenue)</span>
+<span id="cb19-3"><a href="r-basics.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(a)</span></code></pre></div>
 <p>Vectors can contains any data type but it must all be of the same type. In other words, a vector cannot have mixtures of data types. There is one exception, which is with the <code>NA</code> data type. <code>NA</code> can be included within vectors of any other data type to denote missing data in that vector.</p>
 </div>
 <div id="matrices-and-arrays" class="section level3" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> Matrices and Arrays</h3>
 <p>A matrix is a vector that has additional attributes called dimensions. Matrices have only two dimensions. Arrays are multidimensional. Again, all elements in a matrix or array must be of same data type.</p>
 <p>Matrix and array can be created by using the <code>matrix()</code> and <code>array()</code> functions. Below is an example:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="r-basics.html#cb15-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb15-2"><a href="r-basics.html#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-basics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb20-2"><a href="r-basics.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
 <p>The above line of code creates a matrix containing numbers from 1 to 6, as indicated by <code>1:6</code>. It has three rows, as indicated by <code>nrow = 3</code> and the values 1 through 6 are filled row-wise, as indicated by <code>byrow = TRUE</code>. You may define the number of columns as well using <code>ncol=2</code>. However, if you don’t R will try to figure it out based on the number of values you passed.</p>
 <p>When using the array function, the number of dimensions can be defined using <code>dim</code>. The example below creates a 3 dimensional array. It has two rows, three columns and four of those 2x3 matrices.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="r-basics.html#cb16-1" aria-hidden="true" tabindex="-1"></a>my_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
-<span id="cb16-2"><a href="r-basics.html#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_array)</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-basics.html#cb21-1" aria-hidden="true" tabindex="-1"></a>my_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb21-2"><a href="r-basics.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_array)</span></code></pre></div>
 <p>It can be useful to give names to rows and columns when working with a matrix.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="r-basics.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;row1&#39;</span>, <span class="st">&#39;row2&#39;</span>, <span class="st">&#39;row3&#39;</span>)</span>
-<span id="cb17-2"><a href="r-basics.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;col1&#39;</span>, <span class="st">&#39;col2&#39;</span>)</span>
-<span id="cb17-3"><a href="r-basics.html#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r-basics.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;row1&#39;</span>, <span class="st">&#39;row2&#39;</span>, <span class="st">&#39;row3&#39;</span>)</span>
+<span id="cb22-2"><a href="r-basics.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;col1&#39;</span>, <span class="st">&#39;col2&#39;</span>)</span>
+<span id="cb22-3"><a href="r-basics.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
 <p>Matrix operation can be performed by using the arithmetic operator on matrices.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="r-basics.html#cb18-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> <span class="dv">10</span>       <span class="co"># add scalar to each element</span></span>
-<span id="cb18-2"><a href="r-basics.html#cb18-2" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> <span class="dv">2</span>        <span class="co"># multiply each element by scalar</span></span>
-<span id="cb18-3"><a href="r-basics.html#cb18-3" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> amatrix  <span class="co"># matrix addition</span></span>
-<span id="cb18-4"><a href="r-basics.html#cb18-4" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> amatrix  <span class="co"># element by element products</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-basics.html#cb23-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> <span class="dv">10</span>       <span class="co"># add scalar to each element</span></span>
+<span id="cb23-2"><a href="r-basics.html#cb23-2" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> <span class="dv">2</span>        <span class="co"># multiply each element by scalar</span></span>
+<span id="cb23-3"><a href="r-basics.html#cb23-3" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> amatrix  <span class="co"># matrix addition</span></span>
+<span id="cb23-4"><a href="r-basics.html#cb23-4" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> amatrix  <span class="co"># element by element products</span></span></code></pre></div>
 <p>Matrix multiplication can be performed using <code>%*%</code> operator as long as the operation is mathematically possible:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-basics.html#cb19-1" aria-hidden="true" tabindex="-1"></a>bmatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
-<span id="cb19-2"><a href="r-basics.html#cb19-2" aria-hidden="true" tabindex="-1"></a>amatrix<span class="sc">%*%</span>bmatrix</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r-basics.html#cb24-1" aria-hidden="true" tabindex="-1"></a>bmatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb24-2"><a href="r-basics.html#cb24-2" aria-hidden="true" tabindex="-1"></a>amatrix<span class="sc">%*%</span>bmatrix</span></code></pre></div>
 </div>
 <div id="lists" class="section level3" number="1.4.3">
 <h3><span class="header-section-number">1.4.3</span> Lists</h3>
 <p>Lists are useful because they can store multiple data types inside of it. In fact we can even store matrices, arrays or list itself if we need to. Lists are ideal for storing non-rectangular data. <code>List()</code> function can be used to create list.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-basics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(aapl, amatrix, my_array)</span>
-<span id="cb20-2"><a href="r-basics.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-basics.html#cb25-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(aapl, amatrix, my_array)</span>
+<span id="cb25-2"><a href="r-basics.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
 <p>Each element of a list can be named during its constructions:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-basics.html#cb21-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">char =</span> aapl, </span>
-<span id="cb21-2"><a href="r-basics.html#cb21-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">mat =</span> amatrix, </span>
-<span id="cb21-3"><a href="r-basics.html#cb21-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">arr =</span> my_array)</span>
-<span id="cb21-4"><a href="r-basics.html#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r-basics.html#cb26-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">char =</span> aapl, </span>
+<span id="cb26-2"><a href="r-basics.html#cb26-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">mat =</span> amatrix, </span>
+<span id="cb26-3"><a href="r-basics.html#cb26-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">arr =</span> my_array)</span>
+<span id="cb26-4"><a href="r-basics.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
 <p>Now we can use the <code>$</code> operator to access individual item in the list using its name:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r-basics.html#cb22-1" aria-hidden="true" tabindex="-1"></a>my_list<span class="sc">$</span>mat</span></code></pre></div>
-</div>
-<div id="data-frames" class="section level3" number="1.4.4">
-<h3><span class="header-section-number">1.4.4</span> Data frames</h3>
-<p>Data frame are the most commonly used data structure to store data. It is a powerful two-dimensional object comprising rows and columns. The difference between data frame and matrix is that data frame can store mixture of data types. It is similar to an excel file. An easy way to understand is that data frames are basically a bunch of vectors, with their own data types and the same length, concatenated together. Below let’s create a dataframe from three vectors:</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r-basics.html#cb27-1" aria-hidden="true" tabindex="-1"></a>my_list<span class="sc">$</span>mat</span></code></pre></div>
+<!-- ### Data frames   -->
+<!-- Data frame are the most commonly used data structure to store data. It is a powerful two-dimensional object comprising rows and columns. The difference between data frame and matrix is that data frame can store mixture of data types. It is similar to an excel file. An easy way to understand is that data frames are basically a bunch of vectors, with their own data types and the same length, concatenated together. Below let's create a dataframe from three vectors: -->
 
 </div>
 </div>
@@ -399,20 +402,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

@@ -12,13 +12,7 @@ data-structures
 vectors
 matrices-and-arrays
 lists
-data-frames
 programming-structure
-three-basic-control-flows
-sequence
-conditional-execution
-iteration
-functions
 programming-projects
 starting
 windows

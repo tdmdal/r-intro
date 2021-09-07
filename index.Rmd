@@ -46,6 +46,20 @@ As with any language the initial learning curve can be steep. So we advise that 
 **Location:** Online  
 
 **Contact:** 
+**Organizer:** Valeria Sladojevic-Sola; Val.Sladojevic.Sola@rotman.utoronto.ca   
+**Workshop Lead:** Gerhard Trippen; Gerhard.Trippen@rotman.utoronto.ca  
 
 ### Syllabus {-}
-TBD
+This R workshop will introduce students to the basics of the R coding language. It allows students plenty of hands-on programming using R. The practical component includes projects that teach students to load data, assemble and disassemble data objects, navigate R’s environment system, write their own functions, and use all of R’s programming tools, such as 'if else' statements and for 'loops'. Furthermore, the workshop will teach not just how to program with R, but how to use the programming skills to support your work as a data scientist.
+
+Topics included are:
+
+- The very basics of R
+- Packages and help pages
+- R objects
+- R notation
+- Modifying values and programs
+- Functions
+- Plotting
+- Data frames
+- Programs

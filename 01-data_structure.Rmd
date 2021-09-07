@@ -64,6 +64,14 @@ R is case sensitive meaning `TRUE` and `True` are not the same. Try it yourself 
 
 So far, you have created two objects, `a` and `aapl`. In the top right hand pane of RStudio, you will see these two objects listed on the 'Environment' tab. If you click on the down arrow by the `List` icon and select `Grid` view, you will see additional details about these objects such as type, length, size and value. 
 
+**Exercise**
+
+Create an object "company" and assign it a value of "AAPL". Create another object "revenue" and assign it a value of 274.5.
+
+```{r}
+# your code here
+```
+
 ## Data Types
 
 Lets look at the type in detail because it is very important to know how R deals with different types of data. Type of an object, also known as its data type, tells us the kind of operations that is possible with that object. For example, `a` has numeric data type and therefore arithmetic operations can be performed to it. `aapl` is of character type and thus arithmetic operators cannot be applied to it. If you do, you will receive an error: 
@@ -79,6 +87,14 @@ Four types of basic data types we will focus on are - numeric, integer, logical,
 ### Numeric  
 Numeric data are contains decimal numbers. Although, it may also include values without decimal numbers. In most cases, numeric data is chosen by default in R for numeric values. 
 
+**Exercise**
+
+Check whether the data type of the variable "revenue", which you created in section 1.2, is numeric.
+
+```{r}
+# your code here
+```
+
 ### Integer
 Integer are whole numbers, meaning numbers without decimal. 
 
@@ -92,6 +108,14 @@ Notice the results of the two operations. Even though `a` does not have any deci
 a <- as.integer(a)
 is.integer(a)
 ```
+**Exercise**
+
+Convert the data type of variable "revenue", which you created in Section 1.2, into integer. What is a possible danger of such data conversion?
+
+```{r}
+# your code here
+```
+
 
 ### Logical  
 Logical data take either `TRUE` or `FALSE` values. Logical data type result from logical operations:
@@ -102,6 +126,13 @@ is.logical(logical_expression)
 `NA` is also considered to be of logical data type and signifies missing or null values. It is a special type of logical. 
 ```r
 is.logical(NA)
+```
+**Exercise**
+
+Create a logical expression and check the data type.
+
+```{r}
+# your code here
 ```
 
 ### Character 
@@ -114,6 +145,15 @@ Data type modifications must be done with careful consideration to avoid unexpec
 as.integer(5.9)
 as.numeric(aapl)
 ```
+
+**Exercise**
+
+Check if the data type of variable "company", which you created in Section 1.2 is a character.
+
+```{r}
+# your code here
+```
+
 
 ## Data Structures  
 Now that you have been introduced to objects and data types, let's look at some of the main data structures provided by R to store real world data. 
@@ -181,5 +221,5 @@ Now we can use the `$` operator to access individual item in the list using its 
 my_list$mat
 ```
 
-### Data frames  
-Data frame are the most commonly used data structure to store data. It is a powerful two-dimensional object comprising rows and columns. The difference between data frame and matrix is that data frame can store mixture of data types. It is similar to an excel file. An easy way to understand is that data frames are basically a bunch of vectors, with their own data types and the same length, concatenated together. Below let's create a dataframe from three vectors:
+<!-- ### Data frames   -->
+<!-- Data frame are the most commonly used data structure to store data. It is a powerful two-dimensional object comprising rows and columns. The difference between data frame and matrix is that data frame can store mixture of data types. It is similar to an excel file. An easy way to understand is that data frames are basically a bunch of vectors, with their own data types and the same length, concatenated together. Below let's create a dataframe from three vectors: -->

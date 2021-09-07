@@ -31,7 +31,7 @@
   
 <link rel="prev" href="r-basics.html"/>
 <link rel="next" href="programming-projects.html"/>
-<script src="libs/header-attrs-2.8/header-attrs.js"></script>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -165,19 +165,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4.1" data-path="r-basics.html"><a href="r-basics.html#vectors"><i class="fa fa-check"></i><b>1.4.1</b> Vectors</a></li>
 <li class="chapter" data-level="1.4.2" data-path="r-basics.html"><a href="r-basics.html#matrices-and-arrays"><i class="fa fa-check"></i><b>1.4.2</b> Matrices and Arrays</a></li>
 <li class="chapter" data-level="1.4.3" data-path="r-basics.html"><a href="r-basics.html#lists"><i class="fa fa-check"></i><b>1.4.3</b> Lists</a></li>
-<li class="chapter" data-level="1.4.4" data-path="r-basics.html"><a href="r-basics.html#data-frames"><i class="fa fa-check"></i><b>1.4.4</b> Data frames</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="programming-structure.html"><a href="programming-structure.html"><i class="fa fa-check"></i><b>2</b> Programming structure</a>
-<ul>
-<li class="chapter" data-level="2.1" data-path="programming-structure.html"><a href="programming-structure.html#three-basic-control-flows"><i class="fa fa-check"></i><b>2.1</b> Three basic control flows</a>
-<ul>
-<li class="chapter" data-level="2.1.1" data-path="programming-structure.html"><a href="programming-structure.html#sequence"><i class="fa fa-check"></i><b>2.1.1</b> Sequence</a></li>
-<li class="chapter" data-level="2.1.2" data-path="programming-structure.html"><a href="programming-structure.html#conditional-execution"><i class="fa fa-check"></i><b>2.1.2</b> Conditional execution</a></li>
-<li class="chapter" data-level="2.1.3" data-path="programming-structure.html"><a href="programming-structure.html#iteration"><i class="fa fa-check"></i><b>2.1.3</b> Iteration</a></li>
-</ul></li>
-<li class="chapter" data-level="2.2" data-path="programming-structure.html"><a href="programming-structure.html#functions"><i class="fa fa-check"></i><b>2.2</b> Functions</a></li>
-</ul></li>
+<li class="chapter" data-level="2" data-path="programming-structure.html"><a href="programming-structure.html"><i class="fa fa-check"></i><b>2</b> Programming structure</a></li>
 <li class="chapter" data-level="3" data-path="programming-projects.html"><a href="programming-projects.html"><i class="fa fa-check"></i><b>3</b> Programming projects</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="starting.html"><a href="starting.html"><i class="fa fa-check"></i><b>A</b> Install R and RStudio</a>
@@ -213,113 +203,109 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="programming-structure" class="section level1" number="2">
 <h1><span class="header-section-number">2</span> Programming structure</h1>
-<div id="three-basic-control-flows" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> Three basic control flows</h2>
-<div id="sequence" class="section level3" number="2.1.1">
-<h3><span class="header-section-number">2.1.1</span> Sequence</h3>
-<p>Code runs line by line in sequence with no conditional executions or loops. For example, let’s write some code to calculate the following sum of squares.</p>
-<p><span class="math display">\[y = \sum_{t=1}^{3} t^2.\]</span></p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="programming-structure.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sum of squares</span></span>
-<span id="cb23-2"><a href="programming-structure.html#cb23-2" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
-<span id="cb23-3"><a href="programming-structure.html#cb23-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">sum</span>(t<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb23-4"><a href="programming-structure.html#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span>
-<span id="cb23-5"><a href="programming-structure.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 14</span></span></code></pre></div>
-</div>
-<div id="conditional-execution" class="section level3" number="2.1.2">
-<h3><span class="header-section-number">2.1.2</span> Conditional execution</h3>
-<pre><code># if, else
-if (condition) {
-  # code executed when condition is TRUE
-} else {
-  # code executed when condition is FALSE
-}</code></pre>
-<pre><code># if, else if, else
-if (condition1) {
-  # do something when condition1 is TRUE
-} else if (conditon2) {
-  # do something else if condition1 is FALSE but condition2 is TRUE
-} else {
-  # do something if neither condition1 nor condition2 is TRUE
-}</code></pre>
-<p>For example, if the above sum of squares <code>y &gt; 10</code> then print out “result greater than 10”, or otherwise print out “result less or equal to 10”.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="programming-structure.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (y <span class="sc">&gt;</span> <span class="dv">10</span>) {</span>
-<span id="cb26-2"><a href="programming-structure.html#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;result greater than 10&quot;</span>)</span>
-<span id="cb26-3"><a href="programming-structure.html#cb26-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb26-4"><a href="programming-structure.html#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">&quot;result less or equal to 10&quot;</span>)</span>
-<span id="cb26-5"><a href="programming-structure.html#cb26-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb26-6"><a href="programming-structure.html#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] &quot;result greater than 10&quot;</span></span></code></pre></div>
-</div>
-<div id="iteration" class="section level3" number="2.1.3">
-<h3><span class="header-section-number">2.1.3</span> Iteration</h3>
-<pre><code># for loop
-for (var in seq) {
-  do something
-}</code></pre>
-<pre><code># while loop
-while (condition) {
-  do something if condition is TRUE
-}</code></pre>
-<p>For example, let’s solve the above sum of squares using a loop.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="programming-structure.html#cb29-1" aria-hidden="true" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span></span>
-<span id="cb29-2"><a href="programming-structure.html#cb29-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb29-3"><a href="programming-structure.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-4"><a href="programming-structure.html#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (x <span class="cf">in</span> t) {</span>
-<span id="cb29-5"><a href="programming-structure.html#cb29-5" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> y <span class="sc">+</span> x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb29-6"><a href="programming-structure.html#cb29-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb29-7"><a href="programming-structure.html#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-8"><a href="programming-structure.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y)</span>
-<span id="cb29-9"><a href="programming-structure.html#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 14</span></span></code></pre></div>
-<p><strong>Exercise</strong></p>
-<p>Calculate the above sum using a while loop.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="programming-structure.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
-</div>
-</div>
-<div id="functions" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Functions</h2>
-<p>A function is a unit of code block that (usually) takes in some inputs (arguments) and returns a result. We have already used many R functions, for example, <code>print()</code> and <code>length()</code>.</p>
-<p>The two main reasons to write functions are <em>reusability</em> and <em>abstraction</em>. If you find yourself repeating the same code logic or if you want to divide a large piece of code into small logical units, you should consider writing functions.</p>
-<p>In fact, “everything that happens [in R] is a function call.” (John Chambers, the creator of the S programming language and a core member of the R project. R is modelled after S.) For example, even the plus operation “<code>+</code>” is a function: try typing <code>`+`(1, 2)</code> in the R console and see what you get.</p>
-<p>Let’s write a slightly general version of sum of squares using a function.</p>
-<p><span class="math display">\[y = \sum_{t=1}^{n} t^2.\]</span></p>
-<p>This function takes in 1 argument <code>n</code>, and return the sum <code>y</code> defined above.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="programming-structure.html#cb31-1" aria-hidden="true" tabindex="-1"></a>ss <span class="ot">&lt;-</span> <span class="cf">function</span>(n) {</span>
-<span id="cb31-2"><a href="programming-structure.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  t <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span>n</span>
-<span id="cb31-3"><a href="programming-structure.html#cb31-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb31-4"><a href="programming-structure.html#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># the last expression is automatically returned</span></span>
-<span id="cb31-5"><a href="programming-structure.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># or otherwise, you could write return(sum(t^2))</span></span>
-<span id="cb31-6"><a href="programming-structure.html#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sum</span>(t<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb31-7"><a href="programming-structure.html#cb31-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb31-8"><a href="programming-structure.html#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-9"><a href="programming-structure.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">ss</span>(<span class="dv">2</span>))</span>
-<span id="cb31-10"><a href="programming-structure.html#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5</span></span>
-<span id="cb31-11"><a href="programming-structure.html#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">ss</span>(<span class="dv">3</span>))</span>
-<span id="cb31-12"><a href="programming-structure.html#cb31-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 14</span></span></code></pre></div>
-<p><strong>Exercise</strong></p>
-<p>Write an R function to calculate <span class="math display">\[y = \sum_{t=1}^{n} f(t),\]</span> where <span class="math inline">\(n\)</span> is an integer and <span class="math inline">\(f()\)</span> is a generic function that you can define later (e.g. <span class="math inline">\(f(t) = t ^ 2\)</span> or <span class="math inline">\(f(t) = t ^ 3\)</span>). The R function takes in two argument, <code>n</code> and <code>f</code> as in the above formula, and returns the sum <span class="math inline">\(y\)</span>.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="programming-structure.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span>
-<span id="cb32-2"><a href="programming-structure.html#cb32-2" aria-hidden="true" tabindex="-1"></a>f_sum <span class="ot">&lt;-</span> <span class="cf">function</span>(f, n) {</span>
-<span id="cb32-3"><a href="programming-structure.html#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-4"><a href="programming-structure.html#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># insert your code below</span></span>
-<span id="cb32-5"><a href="programming-structure.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb32-6"><a href="programming-structure.html#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(y)</span>
-<span id="cb32-7"><a href="programming-structure.html#cb32-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-8"><a href="programming-structure.html#cb32-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-9"><a href="programming-structure.html#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co"># if your code works as intended, the following should run</span></span>
-<span id="cb32-10"><a href="programming-structure.html#cb32-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-11"><a href="programming-structure.html#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="co"># define t squared as f1</span></span>
-<span id="cb32-12"><a href="programming-structure.html#cb32-12" aria-hidden="true" tabindex="-1"></a>f1 <span class="ot">&lt;-</span> <span class="cf">function</span>(t) {</span>
-<span id="cb32-13"><a href="programming-structure.html#cb32-13" aria-hidden="true" tabindex="-1"></a>  t<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb32-14"><a href="programming-structure.html#cb32-14" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb32-15"><a href="programming-structure.html#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-16"><a href="programming-structure.html#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">f_sum</span>(f1, 3L))</span>
-<span id="cb32-17"><a href="programming-structure.html#cb32-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-18"><a href="programming-structure.html#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="co"># let&#39;s calculate pi</span></span>
-<span id="cb32-19"><a href="programming-structure.html#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="co"># calculate pi using the pi formula</span></span>
-<span id="cb32-20"><a href="programming-structure.html#cb32-20" aria-hidden="true" tabindex="-1"></a>f_pi <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb32-21"><a href="programming-structure.html#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span> <span class="sc">*</span> (<span class="sc">-</span><span class="dv">1</span>) <span class="sc">^</span> (x <span class="sc">+</span> <span class="dv">1</span>) <span class="sc">/</span> (<span class="dv">2</span> <span class="sc">*</span> x <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb32-22"><a href="programming-structure.html#cb32-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Under construction</p>
+<!-- ## Three basic control flows -->
+<!-- ### Sequence -->
+<!-- Code runs line by line in sequence with no conditional executions or loops. For example, let's write some code to calculate the following sum of squares. -->
+<!-- $$y = \sum_{t=1}^{3} t^2.$$ -->
+<!-- ```{r} -->
+<!-- # sum of squares -->
+<!-- t <- 1:3 -->
+<!-- y <- sum(t^2) -->
+<!-- print(y) -->
+<!-- ``` -->
+<!-- ### Conditional execution -->
+<!-- ``` -->
+<!-- # if, else -->
+<!-- if (condition) { -->
+<!--   # code executed when condition is TRUE -->
+<!-- } else { -->
+<!--   # code executed when condition is FALSE -->
+<!-- } -->
+<!-- ``` -->
+<!-- ``` -->
+<!-- # if, else if, else -->
+<!-- if (condition1) { -->
+<!--   # do something when condition1 is TRUE -->
+<!-- } else if (conditon2) { -->
+<!--   # do something else if condition1 is FALSE but condition2 is TRUE -->
+<!-- } else { -->
+<!--   # do something if neither condition1 nor condition2 is TRUE -->
+<!-- } -->
+<!-- ``` -->
+<!-- For example, if the above sum of squares `y > 10` then print out "result greater than 10", or otherwise print out "result less or equal to 10". -->
+<!-- ```{r} -->
+<!-- if (y > 10) { -->
+<!--   print("result greater than 10") -->
+<!-- } else { -->
+<!--   print("result less or equal to 10") -->
+<!-- } -->
+<!-- ``` -->
+<!-- ### Iteration -->
+<!-- ``` -->
+<!-- # for loop -->
+<!-- for (var in seq) { -->
+<!--   do something -->
+<!-- } -->
+<!-- ``` -->
+<!-- ``` -->
+<!-- # while loop -->
+<!-- while (condition) { -->
+<!--   do something if condition is TRUE -->
+<!-- } -->
+<!-- ``` -->
+<!-- For example, let's solve the above sum of squares using a loop. -->
+<!-- ```{r} -->
+<!-- t <- 1:3 -->
+<!-- y <- 0 -->
+<!-- for (x in t) { -->
+<!--   y <- y + x^2 -->
+<!-- } -->
+<!-- print(y) -->
+<!-- ``` -->
+<!-- **Exercise** -->
+<!-- Calculate the above sum using a while loop. -->
+<!-- ```{r} -->
+<!-- # your code here -->
+<!-- ``` -->
+<!-- ## Functions -->
+<!-- A function is a unit of code block that (usually) takes in some inputs (arguments) and returns a result. We have already used many R functions, for example, `print()` and `length()`. -->
+<!-- The two main reasons to write functions are *reusability* and *abstraction*. If you find yourself repeating the same code logic or if you want to divide a large piece of code into small logical units, you should consider writing functions. -->
+<!-- In fact, "everything that happens [in R] is a function call." (John Chambers, the creator of the S programming language and a core member of the R project. R is modelled after S.) For example, even the plus operation "`+`" is a function: try typing `` `+`(1, 2) `` in the R console and see what you get. -->
+<!-- Let's write a slightly general version of sum of squares using a function. -->
+<!-- $$y = \sum_{t=1}^{n} t^2.$$ -->
+<!-- This function takes in 1 argument `n`, and return the sum `y` defined above. -->
+<!-- ```{r} -->
+<!-- ss <- function(n) { -->
+<!--   t <- 1:n -->
+<!--   # the last expression is automatically returned -->
+<!--   # or otherwise, you could write return(sum(t^2)) -->
+<!--   sum(t^2) -->
+<!-- } -->
+<!-- print(ss(2)) -->
+<!-- print(ss(3)) -->
+<!-- ``` -->
+<!-- **Exercise** -->
+<!-- Write an R function to calculate $$y = \sum_{t=1}^{n} f(t),$$ where $n$ is an integer and $f()$ is a generic function that you can define later (e.g. $f(t) = t ^ 2$ or $f(t) = t ^ 3$). The R function takes in two argument, `n` and `f` as in the above formula, and returns the sum $y$. -->
+<!-- ```{r, eval=FALSE} -->
+<!-- # your code here -->
+<!-- f_sum <- function(f, n) { -->
+<!--   # insert your code below -->
+<!--   return(y) -->
+<!-- } -->
+<!-- # if your code works as intended, the following should run -->
+<!-- # define t squared as f1 -->
+<!-- f1 <- function(t) { -->
+<!--   t^2 -->
+<!-- } -->
+<!-- print(f_sum(f1, 3L)) -->
+<!-- # let's calculate pi -->
+<!-- # calculate pi using the pi formula -->
+<!-- f_pi <- function(x) { -->
+<!--   4 * (-1) ^ (x + 1) / (2 * x - 1) -->
+<!-- } -->
+<!-- ``` -->
 
-</div>
 </div>
             </section>
 
@@ -368,20 +354,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>
