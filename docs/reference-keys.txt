@@ -12,6 +12,7 @@ data-structures
 vectors
 matrices-and-arrays
 lists
+data-frames
 programming-structure
 programming-projects
 starting

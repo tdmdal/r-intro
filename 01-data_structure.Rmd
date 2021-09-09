@@ -159,16 +159,82 @@ Check if the data type of variable "company", which you created in Section 1.2 i
 Now that you have been introduced to objects and data types, let's look at some of the main data structures provided by R to store real world data. 
 
 ### Vectors  
-Vectors are the simplest data structure in R. So far the objects we have created are __scalar__ vectors, scalar because they contain a single value. Vectors with more than one value can be created as follows:
+Vectors are the simplest data structure in R. Vectors are 1-dimensional data structures. So far the objects we have created are __scalar__ vectors, scalar because they contain a single value. Vectors with more than one value can be created as follows:
 ```r
-revenue = c(274.5, 143.5)
-print(revenue)
 is.vector(a)
+
+revenue <- c(386.1, 286.2, 274.5, 182.5, 143, 119.5, 86, 82.6, 31.5, 21.9)
+tickers <- c('AMZN', 'BRK.B', 'AAPL', 'GOOG', 'MSFT', 'JPM', 'FB', 'JNJ', 'TSLA', 'V')
+
+print(revenue)
+print(tickers)
+
+is.vector(revenue)
+is.vector(tickers)
 ```
-Vectors can contains any data type but it must all be of the same type. In other words, a vector cannot have mixtures of data types. There is one exception, which is with the `NA` data type. `NA` can be included within vectors of any other data type to denote missing data in that vector.
+The function `length` can be used to get the number of items in a vector.
+```r
+length(revenue)
+length(tickers)
+```
+
+Vectors can contain any data type but it must all be of the same type. In other words, a vector cannot have mixtures of data types. If you tried to create a vector with multiple data types, R will coerce the data type to the most flexible data type. There is one exception, which is with the `NA` data type. `NA` can be included within vectors of any other data type to denote missing data in that vector.
+```r
+mixed_vector <- c(386.1, '286.2', 274.5, NA, 143, 119.5, NA, 82.6, '31.5', '21.9')
+typeof(mixed_vector)
+```
+
+If you want to __extract only one item__ from the vector, you can do so by typing the name of the vector and then indicating the position of that item in the vector inside square brackets. For example, to extract the first item in the vector "revenue" and "tickers", you can write the following code:
+```r
+revenue[1]
+tickers[1]
+```
+
+If you want to __extract more than one item__ from the vector, you can indicate the positions within a vector and place it inside square brackets. Alternatively, if the positions follow a range of numbers, then you can simply create that sequence inside the square bracket. Here are two examples:
+```r
+revenue[c(2,6,10)]
+tickers[1:5]
+```
+
+Operators can be directly applied to the vectors to perform operations on each element of the vector, as long as the operation is possible. 
+```r
+x <- c(1,2,3)
+y <- c(4,5,6)
+print(x+1)
+print(y+2)
+print(x*y)
+print(y/x)
+```
+
+**Exercise**
+
+1. Create a vector of numeric type that contains range of numbers from 1 to 30. Add a value of 1 to each item in this vector and store it in a new vector. Finally, determine the length of this new vector.
+
+```{r}
+# your code here
+```
+
+2. Create a vector of numeric type that contains 30 values of the number 3. Multiply the vector you created in Ex. #1 with this vector.
+
+```{r}
+# your code here
+```
+
+
+3. Run the following operation in r and inspect the result. 
+```r
+c(1,3) - c(2,4,6,8)
+```
+
+
+4. In your R console type `?c`. This will bring up the documentation for the function `c()`. Read the documentation to understand the function in detail.
+
+```{r}
+# your code here
+```
 
 ### Matrices and Arrays
-A matrix is a vector that has additional attributes called dimensions. Matrices have only two dimensions. Arrays are multidimensional. Again, all elements in a matrix or array must be of same data type.  
+A matrix is a vector that has additional attributes called __dimensions__. Matrices have only two dimensions. Arrays are multidimensional matrices. Again, all elements in a matrix or array must be of same data type.  
 
 Matrix and array can be created by using the `matrix()` and `array()` functions. Below is an example:
 ```r
@@ -190,17 +256,49 @@ colnames(amatrix) = c('col1', 'col2')
 print(amatrix)
 ```
 
-Matrix operation can be performed by using the arithmetic operator on matrices. 
+Matrix operations can be performed by using the arithmetic operators on matrices. 
 ```r
 amatrix + 10       # add scalar to each element
 amatrix * 2        # multiply each element by scalar
 amatrix + amatrix  # matrix addition
 amatrix * amatrix  # element by element products
 ```
-Matrix multiplication can be performed using `%*%` operator as long as the operation is mathematically possible:
+
+__Matrix multiplication__ can be performed using `%*%` operator as long as the operation is mathematically possible:
 ```r
 bmatrix <- matrix(1:4, nrow=2)
 amatrix%*%bmatrix
+```
+
+__Extracting elements__ from a matrix or array is similar to extracting elements from a vector. Additionally, since matrix and array have 2 or more dimension, each dimension is separated by a `,`.  
+```r
+print(bmatrix[1])
+print(bmatrix[4])
+
+print(bmatrix[,2])
+print(bmatrix[2,2])
+
+print(amatrix[2:3,1:2])
+```
+
+**Exercise**
+
+1. Create a matrix from vector `c(1:4)` and store it as a. Create another matrix from vector `c(5:20)` and store is as b. 
+
+```{r}
+# your code here
+```
+
+2. Is it possible to perform matrix multiplication between a and b? If so, write the code below.
+
+```{r}
+# your code here
+```
+
+3. Create a 3-dimensional array from vector `c(1:12)`.
+
+```{r}
+# your code here
 ```
 
 ### Lists  
@@ -221,5 +319,51 @@ Now we can use the `$` operator to access individual item in the list using its 
 my_list$mat
 ```
 
-<!-- ### Data frames   -->
-<!-- Data frame are the most commonly used data structure to store data. It is a powerful two-dimensional object comprising rows and columns. The difference between data frame and matrix is that data frame can store mixture of data types. It is similar to an excel file. An easy way to understand is that data frames are basically a bunch of vectors, with their own data types and the same length, concatenated together. Below let's create a dataframe from three vectors: -->
+**Exercise**
+
+1. Create a list containing all data types and data structures we have learned so far.  
+
+```{r}
+# your code here
+```
+
+### Data frames
+Data frame are the most commonly used data structure to store data. It is a powerful two-dimensional object comprising rows and columns. The difference between data frame and matrix is that data frame can store mixture of data types. It is similar to an excel file. An easy way to understand is that data frames are basically a bunch of vectors of the same length each with their own data types concatenated together. Below let's create a data frame from three vectors:
+```r
+revenue <- c(386.1, 286.2, 274.5, 182.5, 143, 119.5, 86, 82.6, 31.5, 21.9)
+tickers <- c('AMZN', 'BRK.B', 'AAPL', 'GOOG', 'MSFT', 'JPM', 'FB', 'JNJ', 'TSLA', 'V')
+company <- c('Amazon', 'Berkshire', 'Apple', 'Google', 'Microsoft', 'JP Morgan', 'Facebook', 'Johnson & Johnson', 'Tesla', 'Visa')
+
+df <- data.frame(revenue_inbillions=revenue, stock_ticker=tickers, company_name=company)
+print(df)
+
+```
+Notice that each column has a name and so do the rows. The name of the rows is simply the integer number that the row starts with. Various functions are available to explore the properties of data frame:
+```r
+dim(df)
+str(df)
+```
+The `dim` function tells us that the given data frame is a 2-d data frame with 10 rows and 3 columns. The `str` function is an extremely useful function that provides a compact summary of the structure of the data frame object. It provides not only the dimension of the data frame but also the type of object each column is comprised of. It also prints out the first five elements of each column. 
+
+Note: The `str` function can in fact be used with any R object. Try it out yourself and review the results. 
+
+__Extracting elements__ from a data frame is similar to that of matrix. 
+```r
+df[,1]
+df[1,]
+df[5:10 , 1:2]
+```
+
+Data frames are called tidy data because each column have the same number of elements. Missing data in data frames are recorded as NA. You will be working with data frames a lot as real world data are mostly in tabular format and therefore, can be easily stored as a data frame in R. 
+
+<!-- 
+To import data into R, you can go to the "File" menu and click on "Import Dataset" option, where you will see further options to import various types of data. Or you may simply write a code to import the data. Many functions exist to import data in R. Each function is designed to import data stored differently. The data may be stored locally in your computer as a excel, csv or some other type of file. The data may also be found on the internet or obtained through other sources. 
+
+Below is an example of importing data from a csv file using the function `read.csv` while providing the full path of the location of the data:
+```r
+PATH <- 'data/
+df <- read.csv("https://s3.amazonaws.com/assets.datacamp.com/blog_assets/test.csv",
+               header = TRUE)
+```
+-->
+

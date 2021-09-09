@@ -165,6 +165,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.4.1" data-path="r-basics.html"><a href="r-basics.html#vectors"><i class="fa fa-check"></i><b>1.4.1</b> Vectors</a></li>
 <li class="chapter" data-level="1.4.2" data-path="r-basics.html"><a href="r-basics.html#matrices-and-arrays"><i class="fa fa-check"></i><b>1.4.2</b> Matrices and Arrays</a></li>
 <li class="chapter" data-level="1.4.3" data-path="r-basics.html"><a href="r-basics.html#lists"><i class="fa fa-check"></i><b>1.4.3</b> Lists</a></li>
+<li class="chapter" data-level="1.4.4" data-path="r-basics.html"><a href="r-basics.html#data-frames"><i class="fa fa-check"></i><b>1.4.4</b> Data frames</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="programming-structure.html"><a href="programming-structure.html"><i class="fa fa-check"></i><b>2</b> Programming structure</a></li>
@@ -308,49 +309,145 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Now that you have been introduced to objects and data types, let’s look at some of the main data structures provided by R to store real world data.</p>
 <div id="vectors" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> Vectors</h3>
-<p>Vectors are the simplest data structure in R. So far the objects we have created are <strong>scalar</strong> vectors, scalar because they contain a single value. Vectors with more than one value can be created as follows:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-basics.html#cb19-1" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">274.5</span>, <span class="fl">143.5</span>)</span>
-<span id="cb19-2"><a href="r-basics.html#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(revenue)</span>
-<span id="cb19-3"><a href="r-basics.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(a)</span></code></pre></div>
-<p>Vectors can contains any data type but it must all be of the same type. In other words, a vector cannot have mixtures of data types. There is one exception, which is with the <code>NA</code> data type. <code>NA</code> can be included within vectors of any other data type to denote missing data in that vector.</p>
+<p>Vectors are the simplest data structure in R. Vectors are 1-dimensional data structures. So far the objects we have created are <strong>scalar</strong> vectors, scalar because they contain a single value. Vectors with more than one value can be created as follows:</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="r-basics.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(a)</span>
+<span id="cb19-2"><a href="r-basics.html#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="r-basics.html#cb19-3" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">386.1</span>, <span class="fl">286.2</span>, <span class="fl">274.5</span>, <span class="fl">182.5</span>, <span class="dv">143</span>, <span class="fl">119.5</span>, <span class="dv">86</span>, <span class="fl">82.6</span>, <span class="fl">31.5</span>, <span class="fl">21.9</span>)</span>
+<span id="cb19-4"><a href="r-basics.html#cb19-4" aria-hidden="true" tabindex="-1"></a>tickers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;AMZN&#39;</span>, <span class="st">&#39;BRK.B&#39;</span>, <span class="st">&#39;AAPL&#39;</span>, <span class="st">&#39;GOOG&#39;</span>, <span class="st">&#39;MSFT&#39;</span>, <span class="st">&#39;JPM&#39;</span>, <span class="st">&#39;FB&#39;</span>, <span class="st">&#39;JNJ&#39;</span>, <span class="st">&#39;TSLA&#39;</span>, <span class="st">&#39;V&#39;</span>)</span>
+<span id="cb19-5"><a href="r-basics.html#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="r-basics.html#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(revenue)</span>
+<span id="cb19-7"><a href="r-basics.html#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tickers)</span>
+<span id="cb19-8"><a href="r-basics.html#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="r-basics.html#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(revenue)</span>
+<span id="cb19-10"><a href="r-basics.html#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(tickers)</span></code></pre></div>
+<p>The function <code>length</code> can be used to get the number of items in a vector.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-basics.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(revenue)</span>
+<span id="cb20-2"><a href="r-basics.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(tickers)</span></code></pre></div>
+<p>Vectors can contain any data type but it must all be of the same type. In other words, a vector cannot have mixtures of data types. If you tried to create a vector with multiple data types, R will coerce the data type to the most flexible data type. There is one exception, which is with the <code>NA</code> data type. <code>NA</code> can be included within vectors of any other data type to denote missing data in that vector.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-basics.html#cb21-1" aria-hidden="true" tabindex="-1"></a>mixed_vector <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">386.1</span>, <span class="st">&#39;286.2&#39;</span>, <span class="fl">274.5</span>, <span class="cn">NA</span>, <span class="dv">143</span>, <span class="fl">119.5</span>, <span class="cn">NA</span>, <span class="fl">82.6</span>, <span class="st">&#39;31.5&#39;</span>, <span class="st">&#39;21.9&#39;</span>)</span>
+<span id="cb21-2"><a href="r-basics.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(mixed_vector)</span></code></pre></div>
+<p>If you want to <strong>extract only one item</strong> from the vector, you can do so by typing the name of the vector and then indicating the position of that item in the vector inside square brackets. For example, to extract the first item in the vector “revenue” and “tickers”, you can write the following code:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r-basics.html#cb22-1" aria-hidden="true" tabindex="-1"></a>revenue[<span class="dv">1</span>]</span>
+<span id="cb22-2"><a href="r-basics.html#cb22-2" aria-hidden="true" tabindex="-1"></a>tickers[<span class="dv">1</span>]</span></code></pre></div>
+<p>If you want to <strong>extract more than one item</strong> from the vector, you can indicate the positions within a vector and place it inside square brackets. Alternatively, if the positions follow a range of numbers, then you can simply create that sequence inside the square bracket. Here are two examples:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-basics.html#cb23-1" aria-hidden="true" tabindex="-1"></a>revenue[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">10</span>)]</span>
+<span id="cb23-2"><a href="r-basics.html#cb23-2" aria-hidden="true" tabindex="-1"></a>tickers[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<p>Operators can be directly applied to the vectors to perform operations on each element of the vector, as long as the operation is possible.</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r-basics.html#cb24-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb24-2"><a href="r-basics.html#cb24-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>)</span>
+<span id="cb24-3"><a href="r-basics.html#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x<span class="sc">+</span><span class="dv">1</span>)</span>
+<span id="cb24-4"><a href="r-basics.html#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y<span class="sc">+</span><span class="dv">2</span>)</span>
+<span id="cb24-5"><a href="r-basics.html#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(x<span class="sc">*</span>y)</span>
+<span id="cb24-6"><a href="r-basics.html#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(y<span class="sc">/</span>x)</span></code></pre></div>
+<p><strong>Exercise</strong></p>
+<ol style="list-style-type: decimal">
+<li>Create a vector of numeric type that contains range of numbers from 1 to 30. Add a value of 1 to each item in this vector and store it in a new vector. Finally, determine the length of this new vector.</li>
+</ol>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-basics.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Create a vector of numeric type that contains 30 values of the number 3. Multiply the vector you created in Ex. #1 with this vector.</li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r-basics.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Run the following operation in r and inspect the result.</li>
+</ol>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r-basics.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">3</span>) <span class="sc">-</span> <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">6</span>,<span class="dv">8</span>)</span></code></pre></div>
+<ol start="4" style="list-style-type: decimal">
+<li>In your R console type <code>?c</code>. This will bring up the documentation for the function <code>c()</code>. Read the documentation to understand the function in detail.</li>
+</ol>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="r-basics.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
 </div>
 <div id="matrices-and-arrays" class="section level3" number="1.4.2">
 <h3><span class="header-section-number">1.4.2</span> Matrices and Arrays</h3>
-<p>A matrix is a vector that has additional attributes called dimensions. Matrices have only two dimensions. Arrays are multidimensional. Again, all elements in a matrix or array must be of same data type.</p>
+<p>A matrix is a vector that has additional attributes called <strong>dimensions</strong>. Matrices have only two dimensions. Arrays are multidimensional matrices. Again, all elements in a matrix or array must be of same data type.</p>
 <p>Matrix and array can be created by using the <code>matrix()</code> and <code>array()</code> functions. Below is an example:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="r-basics.html#cb20-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
-<span id="cb20-2"><a href="r-basics.html#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="r-basics.html#cb29-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb29-2"><a href="r-basics.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
 <p>The above line of code creates a matrix containing numbers from 1 to 6, as indicated by <code>1:6</code>. It has three rows, as indicated by <code>nrow = 3</code> and the values 1 through 6 are filled row-wise, as indicated by <code>byrow = TRUE</code>. You may define the number of columns as well using <code>ncol=2</code>. However, if you don’t R will try to figure it out based on the number of values you passed.</p>
 <p>When using the array function, the number of dimensions can be defined using <code>dim</code>. The example below creates a 3 dimensional array. It has two rows, three columns and four of those 2x3 matrices.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="r-basics.html#cb21-1" aria-hidden="true" tabindex="-1"></a>my_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
-<span id="cb21-2"><a href="r-basics.html#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_array)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="r-basics.html#cb30-1" aria-hidden="true" tabindex="-1"></a>my_array <span class="ot">&lt;-</span> <span class="fu">array</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb30-2"><a href="r-basics.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_array)</span></code></pre></div>
 <p>It can be useful to give names to rows and columns when working with a matrix.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="r-basics.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;row1&#39;</span>, <span class="st">&#39;row2&#39;</span>, <span class="st">&#39;row3&#39;</span>)</span>
-<span id="cb22-2"><a href="r-basics.html#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;col1&#39;</span>, <span class="st">&#39;col2&#39;</span>)</span>
-<span id="cb22-3"><a href="r-basics.html#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
-<p>Matrix operation can be performed by using the arithmetic operator on matrices.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="r-basics.html#cb23-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> <span class="dv">10</span>       <span class="co"># add scalar to each element</span></span>
-<span id="cb23-2"><a href="r-basics.html#cb23-2" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> <span class="dv">2</span>        <span class="co"># multiply each element by scalar</span></span>
-<span id="cb23-3"><a href="r-basics.html#cb23-3" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> amatrix  <span class="co"># matrix addition</span></span>
-<span id="cb23-4"><a href="r-basics.html#cb23-4" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> amatrix  <span class="co"># element by element products</span></span></code></pre></div>
-<p>Matrix multiplication can be performed using <code>%*%</code> operator as long as the operation is mathematically possible:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="r-basics.html#cb24-1" aria-hidden="true" tabindex="-1"></a>bmatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
-<span id="cb24-2"><a href="r-basics.html#cb24-2" aria-hidden="true" tabindex="-1"></a>amatrix<span class="sc">%*%</span>bmatrix</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="r-basics.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rownames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;row1&#39;</span>, <span class="st">&#39;row2&#39;</span>, <span class="st">&#39;row3&#39;</span>)</span>
+<span id="cb31-2"><a href="r-basics.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(amatrix) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&#39;col1&#39;</span>, <span class="st">&#39;col2&#39;</span>)</span>
+<span id="cb31-3"><a href="r-basics.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix)</span></code></pre></div>
+<p>Matrix operations can be performed by using the arithmetic operators on matrices.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="r-basics.html#cb32-1" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> <span class="dv">10</span>       <span class="co"># add scalar to each element</span></span>
+<span id="cb32-2"><a href="r-basics.html#cb32-2" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> <span class="dv">2</span>        <span class="co"># multiply each element by scalar</span></span>
+<span id="cb32-3"><a href="r-basics.html#cb32-3" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">+</span> amatrix  <span class="co"># matrix addition</span></span>
+<span id="cb32-4"><a href="r-basics.html#cb32-4" aria-hidden="true" tabindex="-1"></a>amatrix <span class="sc">*</span> amatrix  <span class="co"># element by element products</span></span></code></pre></div>
+<p><strong>Matrix multiplication</strong> can be performed using <code>%*%</code> operator as long as the operation is mathematically possible:</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="r-basics.html#cb33-1" aria-hidden="true" tabindex="-1"></a>bmatrix <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">nrow=</span><span class="dv">2</span>)</span>
+<span id="cb33-2"><a href="r-basics.html#cb33-2" aria-hidden="true" tabindex="-1"></a>amatrix<span class="sc">%*%</span>bmatrix</span></code></pre></div>
+<p><strong>Extracting elements</strong> from a matrix or array is similar to extracting elements from a vector. Additionally, since matrix and array have 2 or more dimension, each dimension is separated by a <code>,</code>.</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="r-basics.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bmatrix[<span class="dv">1</span>])</span>
+<span id="cb34-2"><a href="r-basics.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bmatrix[<span class="dv">4</span>])</span>
+<span id="cb34-3"><a href="r-basics.html#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="r-basics.html#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bmatrix[,<span class="dv">2</span>])</span>
+<span id="cb34-5"><a href="r-basics.html#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bmatrix[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb34-6"><a href="r-basics.html#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="r-basics.html#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(amatrix[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div>
+<p><strong>Exercise</strong></p>
+<ol style="list-style-type: decimal">
+<li>Create a matrix from vector <code>c(1:4)</code> and store it as a. Create another matrix from vector <code>c(5:20)</code> and store is as b.</li>
+</ol>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="r-basics.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>Is it possible to perform matrix multiplication between a and b? If so, write the code below.</li>
+</ol>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="r-basics.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>Create a 3-dimensional array from vector <code>c(1:12)</code>.</li>
+</ol>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="r-basics.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
 </div>
 <div id="lists" class="section level3" number="1.4.3">
 <h3><span class="header-section-number">1.4.3</span> Lists</h3>
 <p>Lists are useful because they can store multiple data types inside of it. In fact we can even store matrices, arrays or list itself if we need to. Lists are ideal for storing non-rectangular data. <code>List()</code> function can be used to create list.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="r-basics.html#cb25-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(aapl, amatrix, my_array)</span>
-<span id="cb25-2"><a href="r-basics.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="r-basics.html#cb38-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(aapl, amatrix, my_array)</span>
+<span id="cb38-2"><a href="r-basics.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
 <p>Each element of a list can be named during its constructions:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="r-basics.html#cb26-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">char =</span> aapl, </span>
-<span id="cb26-2"><a href="r-basics.html#cb26-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">mat =</span> amatrix, </span>
-<span id="cb26-3"><a href="r-basics.html#cb26-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">arr =</span> my_array)</span>
-<span id="cb26-4"><a href="r-basics.html#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="r-basics.html#cb39-1" aria-hidden="true" tabindex="-1"></a>my_list <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">char =</span> aapl, </span>
+<span id="cb39-2"><a href="r-basics.html#cb39-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">mat =</span> amatrix, </span>
+<span id="cb39-3"><a href="r-basics.html#cb39-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">arr =</span> my_array)</span>
+<span id="cb39-4"><a href="r-basics.html#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(my_list)</span></code></pre></div>
 <p>Now we can use the <code>$</code> operator to access individual item in the list using its name:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="r-basics.html#cb27-1" aria-hidden="true" tabindex="-1"></a>my_list<span class="sc">$</span>mat</span></code></pre></div>
-<!-- ### Data frames   -->
-<!-- Data frame are the most commonly used data structure to store data. It is a powerful two-dimensional object comprising rows and columns. The difference between data frame and matrix is that data frame can store mixture of data types. It is similar to an excel file. An easy way to understand is that data frames are basically a bunch of vectors, with their own data types and the same length, concatenated together. Below let's create a dataframe from three vectors: -->
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="r-basics.html#cb40-1" aria-hidden="true" tabindex="-1"></a>my_list<span class="sc">$</span>mat</span></code></pre></div>
+<p><strong>Exercise</strong></p>
+<ol style="list-style-type: decimal">
+<li>Create a list containing all data types and data structures we have learned so far.</li>
+</ol>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="r-basics.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># your code here</span></span></code></pre></div>
+</div>
+<div id="data-frames" class="section level3" number="1.4.4">
+<h3><span class="header-section-number">1.4.4</span> Data frames</h3>
+<p>Data frame are the most commonly used data structure to store data. It is a powerful two-dimensional object comprising rows and columns. The difference between data frame and matrix is that data frame can store mixture of data types. It is similar to an excel file. An easy way to understand is that data frames are basically a bunch of vectors of the same length each with their own data types concatenated together. Below let’s create a data frame from three vectors:</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="r-basics.html#cb42-1" aria-hidden="true" tabindex="-1"></a>revenue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">386.1</span>, <span class="fl">286.2</span>, <span class="fl">274.5</span>, <span class="fl">182.5</span>, <span class="dv">143</span>, <span class="fl">119.5</span>, <span class="dv">86</span>, <span class="fl">82.6</span>, <span class="fl">31.5</span>, <span class="fl">21.9</span>)</span>
+<span id="cb42-2"><a href="r-basics.html#cb42-2" aria-hidden="true" tabindex="-1"></a>tickers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;AMZN&#39;</span>, <span class="st">&#39;BRK.B&#39;</span>, <span class="st">&#39;AAPL&#39;</span>, <span class="st">&#39;GOOG&#39;</span>, <span class="st">&#39;MSFT&#39;</span>, <span class="st">&#39;JPM&#39;</span>, <span class="st">&#39;FB&#39;</span>, <span class="st">&#39;JNJ&#39;</span>, <span class="st">&#39;TSLA&#39;</span>, <span class="st">&#39;V&#39;</span>)</span>
+<span id="cb42-3"><a href="r-basics.html#cb42-3" aria-hidden="true" tabindex="-1"></a>company <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;Amazon&#39;</span>, <span class="st">&#39;Berkshire&#39;</span>, <span class="st">&#39;Apple&#39;</span>, <span class="st">&#39;Google&#39;</span>, <span class="st">&#39;Microsoft&#39;</span>, <span class="st">&#39;JP Morgan&#39;</span>, <span class="st">&#39;Facebook&#39;</span>, <span class="st">&#39;Johnson &amp; Johnson&#39;</span>, <span class="st">&#39;Tesla&#39;</span>, <span class="st">&#39;Visa&#39;</span>)</span>
+<span id="cb42-4"><a href="r-basics.html#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="r-basics.html#cb42-5" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">revenue_inbillions=</span>revenue, <span class="at">stock_ticker=</span>tickers, <span class="at">company_name=</span>company)</span>
+<span id="cb42-6"><a href="r-basics.html#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(df)</span></code></pre></div>
+<p>Notice that each column has a name and so do the rows. The name of the rows is simply the integer number that the row starts with. Various functions are available to explore the properties of data frame:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="r-basics.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span>
+<span id="cb43-2"><a href="r-basics.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span></code></pre></div>
+<p>The <code>dim</code> function tells us that the given data frame is a 2-d data frame with 10 rows and 3 columns. The <code>str</code> function is an extremely useful function that provides a compact summary of the structure of the data frame object. It provides not only the dimension of the data frame but also the type of object each column is comprised of. It also prints out the first five elements of each column.</p>
+<p>Note: The <code>str</code> function can in fact be used with any R object. Try it out yourself and review the results.</p>
+<p><strong>Extracting elements</strong> from a data frame is similar to that of matrix.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="r-basics.html#cb44-1" aria-hidden="true" tabindex="-1"></a>df[,<span class="dv">1</span>]</span>
+<span id="cb44-2"><a href="r-basics.html#cb44-2" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">1</span>,]</span>
+<span id="cb44-3"><a href="r-basics.html#cb44-3" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">5</span><span class="sc">:</span><span class="dv">10</span> , <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]</span></code></pre></div>
+<p>Data frames are called tidy data because each column have the same number of elements. Missing data in data frames are recorded as NA. You will be working with data frames a lot as real world data are mostly in tabular format and therefore, can be easily stored as a data frame in R.</p>
+<!-- 
+To import data into R, you can go to the "File" menu and click on "Import Dataset" option, where you will see further options to import various types of data. Or you may simply write a code to import the data. Many functions exist to import data in R. Each function is designed to import data stored differently. The data may be stored locally in your computer as a excel, csv or some other type of file. The data may also be found on the internet or obtained through other sources. 
+
+Below is an example of importing data from a csv file using the function `read.csv` while providing the full path of the location of the data:
+```r
+PATH <- 'data/
+df <- read.csv("https://s3.amazonaws.com/assets.datacamp.com/blog_assets/test.csv",
+               header = TRUE)
+```
+-->
 
 </div>
 </div>
