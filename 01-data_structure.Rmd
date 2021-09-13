@@ -66,7 +66,7 @@ So far, you have created two objects, `a` and `aapl`. In the top right hand pane
 
 **Exercise**
 
-Create an object "company" and assign it a value of "AAPL". Create another object "revenue" and assign it a value of 274.5.
+1. Create an object "company" and assign it a value of "AAPL". Create another object "revenue" and assign it a value of 274.5.
 
 ```{r}
 # your code here
@@ -89,7 +89,7 @@ Numeric data are contains decimal numbers. Although, it may also include values 
 
 **Exercise**
 
-Check whether the data type of the variable "revenue", which you created in section 1.2, is numeric.
+1. Check whether the data type of the variable "revenue", which you created in section 1.2, is numeric.
 
 ```{r}
 # your code here
@@ -110,7 +110,7 @@ is.integer(a)
 ```
 **Exercise**
 
-Convert the data type of variable "revenue", which you created in Section 1.2, into integer. What is a possible danger of such data conversion?
+1. Convert the data type of variable "revenue", which you created in Section 1.2, into integer. What is a possible danger of such data conversion?
 
 ```{r}
 # your code here
@@ -129,7 +129,7 @@ is.logical(NA)
 ```
 **Exercise**
 
-Create a logical expression and check the data type.
+1. Create a logical expression and check the data type.
 
 ```{r}
 # your code here
@@ -148,7 +148,7 @@ as.numeric(aapl)
 
 **Exercise**
 
-Check if the data type of variable "company", which you created in Section 1.2 is a character.
+1. Check if the data type of variable "company", which you created in Section 1.2 is a character.
 
 ```{r}
 # your code here

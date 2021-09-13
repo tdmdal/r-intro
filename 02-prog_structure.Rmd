@@ -4,146 +4,237 @@
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-Under construction
 
-<!-- ## Three basic control flows -->
+## Three basic control flows
 
-<!-- ### Sequence -->
+### Sequence
 
-<!-- Code runs line by line in sequence with no conditional executions or loops. For example, let's write some code to calculate the following sum of squares. -->
+Code runs line by line in sequence. For example, let's write some code to calculate the following sum of squares.
 
-<!-- $$y = \sum_{t=1}^{3} t^2.$$ -->
+$$y = \sum_{t=1}^{3} t^2.$$
 
-<!-- ```{r} -->
-<!-- # sum of squares -->
-<!-- t <- 1:3 -->
-<!-- y <- sum(t^2) -->
-<!-- print(y) -->
-<!-- ``` -->
+```
+# sum of squares
+t <- 1:3
+y <- sum(t^2)
+print(y)
+```
 
-<!-- ### Conditional execution -->
+In the above example, first the variable `t` is created. Then the sum of squares is calculated and stored in the variable `y` and finally, the value of `y` is printed. This is the sequence in which this code is written and therefore, the sequence in which it ran.    
 
-<!-- ``` -->
-<!-- # if, else -->
-<!-- if (condition) { -->
-<!--   # code executed when condition is TRUE -->
-<!-- } else { -->
-<!--   # code executed when condition is FALSE -->
-<!-- } -->
-<!-- ``` -->
+### Conditional execution
 
-<!-- ``` -->
-<!-- # if, else if, else -->
-<!-- if (condition1) { -->
-<!--   # do something when condition1 is TRUE -->
-<!-- } else if (conditon2) { -->
-<!--   # do something else if condition1 is FALSE but condition2 is TRUE -->
-<!-- } else { -->
-<!--   # do something if neither condition1 nor condition2 is TRUE -->
-<!-- } -->
-<!-- ``` -->
+A __Logical (Boolean) Expression__ returns either `TRUE` or `FALSE`. It is mostly used to compare quantities. Here are some examples:
+```
+1 < 2
+5 > 4
+10 == 100
+```
 
-<!-- For example, if the above sum of squares `y > 10` then print out "result greater than 10", or otherwise print out "result less or equal to 10". -->
+Logical expressions can also be used to write conditional programs. Conditional programs perform a set of different operation(s) based on whether the accompanied logical expression is `TRUE` or `FALSE`. Conditional programs use the keywords `if` and/or `else`.
 
-<!-- ```{r} -->
-<!-- if (y > 10) { -->
-<!--   print("result greater than 10") -->
-<!-- } else { -->
-<!--   print("result less or equal to 10") -->
-<!-- } -->
-<!-- ``` -->
+Conditional programs follow the following structure:
+```
+if (logical expression) {
+  # code executed when logical expression is TRUE
+} else {
+  # code executed when logical expression is FALSE
+}
+```
 
-<!-- ### Iteration -->
+Let's consider that if a variable `y` is greater than 10, then we want to print out "result greater than 10". Otherwise we want to print out "result less than or equal to 10". The example below is the conditional program to achieve that:
+```
+t = 1:3
+y = sum(t^2)
+if (y > 10) {
+  print("result greater than 10")
+} else {
+  print("result less than or equal to 10")
+}
+```
 
-<!-- ``` -->
-<!-- # for loop -->
-<!-- for (var in seq) { -->
-<!--   do something -->
-<!-- } -->
-<!-- ``` -->
+Since the value of `y` is 14, which is greater than 10, the logical expression after the keyword `if` is `TRUE`. Therefore, the operation following this logical expression that is wrapped inside the curly brackets `{}` runs and `"result greater than 10"` is printed on our console. In the following line is the keyword `else` followed by a different operation wrapped inside curly bracket again. However, these two lines of code never run even though they are written. This is the power of conditional programs, which allows us to control which operations to run.
 
-<!-- ``` -->
-<!-- # while loop -->
-<!-- while (condition) { -->
-<!--   do something if condition is TRUE -->
-<!-- } -->
-<!-- ``` -->
+__Note__ that in many programming languages, the indentation in a conditional program determines which lines of code to run when the given condition is met. However, in R it is determined by the curly brackets `{}`, not indentations but they are used still to improve code readability.
 
-<!-- For example, let's solve the above sum of squares using a loop. -->
-<!-- ```{r} -->
-<!-- t <- 1:3 -->
-<!-- y <- 0 -->
+Multiple `if` statements can be added to the conditional program:
+```
+t = 1:3
+y = sum(t^2)
+if (y > 10) {
+  print("result greater than 10")
+} else if (y == 10) {
+  print("result equal to 10")
+} else {
+  print("result less than 10")
+}
+```
 
-<!-- for (x in t) { -->
-<!--   y <- y + x^2 -->
-<!-- } -->
+There is also a `ifelse` function that can sometimes be handy to write short conditional programs. `ifelse` function takes as parameter, a logical ex
+```
+a = 16
+ifelse(a*2 == 16, 'The condition is True', 'The condition is False')
+```
 
-<!-- print(y) -->
-<!-- ``` -->
+**Exercise**
 
-<!-- **Exercise** -->
+1. Create a conditional statement.
 
-<!-- Calculate the above sum using a while loop. -->
+```{r}
+# your code here
+```
 
-<!-- ```{r} -->
-<!-- # your code here -->
-<!-- ``` -->
+2. Create another conditional statement with multiple conditions. 
+```{r}
+# your code here
+```
 
-
-<!-- ## Functions -->
-
-<!-- A function is a unit of code block that (usually) takes in some inputs (arguments) and returns a result. We have already used many R functions, for example, `print()` and `length()`. -->
-
-<!-- The two main reasons to write functions are *reusability* and *abstraction*. If you find yourself repeating the same code logic or if you want to divide a large piece of code into small logical units, you should consider writing functions. -->
-
-<!-- In fact, "everything that happens [in R] is a function call." (John Chambers, the creator of the S programming language and a core member of the R project. R is modelled after S.) For example, even the plus operation "`+`" is a function: try typing `` `+`(1, 2) `` in the R console and see what you get. -->
-
-<!-- Let's write a slightly general version of sum of squares using a function. -->
-
-<!-- $$y = \sum_{t=1}^{n} t^2.$$ -->
-
-<!-- This function takes in 1 argument `n`, and return the sum `y` defined above. -->
-
-<!-- ```{r} -->
-<!-- ss <- function(n) { -->
-<!--   t <- 1:n -->
-
-<!--   # the last expression is automatically returned -->
-<!--   # or otherwise, you could write return(sum(t^2)) -->
-<!--   sum(t^2) -->
-<!-- } -->
-
-<!-- print(ss(2)) -->
-<!-- print(ss(3)) -->
-<!-- ``` -->
-
-<!-- **Exercise** -->
-
-<!-- Write an R function to calculate $$y = \sum_{t=1}^{n} f(t),$$ where $n$ is an integer and $f()$ is a generic function that you can define later (e.g. $f(t) = t ^ 2$ or $f(t) = t ^ 3$). The R function takes in two argument, `n` and `f` as in the above formula, and returns the sum $y$. -->
-
-<!-- ```{r, eval=FALSE} -->
-<!-- # your code here -->
-<!-- f_sum <- function(f, n) { -->
-
-<!--   # insert your code below -->
-
-<!--   return(y) -->
-<!-- } -->
-
-<!-- # if your code works as intended, the following should run -->
-
-<!-- # define t squared as f1 -->
-<!-- f1 <- function(t) { -->
-<!--   t^2 -->
-<!-- } -->
-
-<!-- print(f_sum(f1, 3L)) -->
-
-<!-- # let's calculate pi -->
-<!-- # calculate pi using the pi formula -->
-<!-- f_pi <- function(x) { -->
-<!--   4 * (-1) ^ (x + 1) / (2 * x - 1) -->
-<!-- } -->
-<!-- ``` -->
+3. Run `?ifelse` on your console and read the details of this function. Can you use this function to test each element of a sequence?
 
 
+### Iteration
+
+When you want to run the same set of operations in each of the elements of a sequence, you can write an iteration to do so in fewer lines of code. Iterations are also known as loops. There are two types of iterations.
+
+#### For loop
+For loops use the keyword `for` and repeats a set of operations on each element of a sequence as specified. For loops follow the following structure:
+```
+# for loop
+for (var in seq) {
+  do something
+}
+```
+
+Let's solve the sum of squares of elements in a vector using a for loop.
+```
+t <- 1:3
+y <- 0
+
+for (ele in t) {
+  print(ele)
+  y <- y + ele^2
+}
+
+print(y)
+```
+
+As seen in the results, the variable `ele` refers to each item of the vector `t`. The operations to be performed on each element of the vector is defined inside the curly brackets `{}`. First the element itself is printed and then, the variable `y` is updated by adding to itself the square of the value the variable `ele` refers to. The operations is repeated until there are no more elements left in the sequence.  
+
+__Note__ that variable `ele` exists inside the loop only. Outside of the loop, its value is set to the last value it iterated over. 
+
+**Exercise**
+1. Write a for loop that iterates over a range of 1 through 8 and prints the cube of each number. 
+```{r}
+```
+
+2. Write a for loop that prints the GPA given the final total score.
+```{r table2 , echo=FALSE, results='asis'}
+  cat(' Table: \\label{tab:table2}Example
+
+  | Final Total Score| GPA| Grade|
+  |-----------------:|---:|-----:|
+  |            90-100| 4.0|    A+|
+  |             85-89| 4.0|     A|
+  |             80-84| 3.7|    A-|
+  |             77-79| 3.3|    B+|
+  |             73-76| 3.0|     B|
+  |             70-72| 2.7|    B-|
+  |             67-69| 2.3|    C+|
+  |             63-66| 2.0|     C|
+  |             60-62| 1.7|    C-|
+  |             57-59| 1.3|    D+|
+  |             53-56| 1.0|     D|
+  |             50-52| 0.7|    D-|
+  |      less than 49| 0.0|     F|')
+
+```
+
+```{r}
+# your code here
+```
+
+#### While loop
+While loops use the keyword `while` and repeats a set of operations until a desired state is achieved. While loops follow the following structure:
+```
+# while loop
+while (condition) {
+  do something if condition is TRUE
+}
+```
+
+Now let's perform the same operation as above using a while loop instead:
+```
+t <- 1:3
+y <- 0
+counter = 1
+
+while (counter <= length(t)) {
+  print(counter)
+  
+  y <- y + t[counter]^2
+  print(y)
+  
+  counter <- counter + 1
+}
+```
+Here, we also have the variable `counter`, which acts like the `ele` variable in the for loop. Except for this variable `counter` is used as a index to go through each element of the sequence `t`. After the required operation is performed on the 
+element, the variable `counter` is updated by 1 so that next time it can refer to the next element in the sequence. This process is repeated until the condition `counter <= length(t)` is met. Once the condition is met, the code terminates.  
+
+**Exercise**
+
+1. Write a while loop that divides the variable `n` below by the integer 3 and updated the value of `n` until n is greater than or equal to 1. When this while loop terminates what is the value of n? Print it. 
+```{r}
+# your code here
+```
+
+## Functions
+
+A function is a unit of code block that (usually) takes in some inputs (arguments) and returns a result. We have already used many R functions, for example, `print()` and `length()`.
+
+The two main reasons to write functions are *reusability* and *abstraction*. If you find yourself repeating the same code logic or if you want to divide a large piece of code into small logical units, you should consider writing functions.
+
+In fact, "everything that happens [in R] is a function call." (John Chambers, the creator of the S programming language and a core member of the R project. R is modelled after S.) For example, even the plus operation "`+`" is a function. Try typing `` `+`(1, 2) `` in the R console and see what you get.
+
+Let's write a slightly general version of sum of squares using a function.
+
+$$y = \sum_{t=1}^{n} t^2.$$
+
+This function takes in 1 argument `n`, and return the sum as `y` defined above.
+
+```{r}
+ss <- function(n) {
+  t <- 1:n
+
+  # the last expression is automatically returned
+  # or otherwise, you could write return(sum(t^2))
+  sum(t^2)
+}
+
+print(ss(2))
+print(ss(3))
+```
+When the parameter `n` take the argument `2`, the result of applying function `ss` is 5. When the parameter `n` take the argument `3`, the result of applying function `ss` is 14. 
+
+**Exercise**
+
+1. Write a function called `abs_val` that returns the absolute value of x i.e. if x is positive it should return x or if x is negative it should return -x. 
+```{r}
+# your code here
+```
+
+2. Write an R function to calculate $$y = \sum_{t=1}^{n} f(t),$$ where $n$ is an integer and $f()$ is a generic function that you can define later (e.g. $f(t) = t ^ 2$ or $f(t) = t ^ 3$). The R function takes in two arguments, `n` and `f` as in the above formula, and returns the sum $y$.
+
+```{r, eval=FALSE}
+f_sum <- function(f, n) {
+
+  # insert your code below
+
+  return(y)
+}
+
+# if your code works as intended, the following should run
+f1 <- function(t) {
+  t^2
+}
+print(f_sum(f1, 3L))
+```
