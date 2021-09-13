@@ -35,6 +35,18 @@ As with any language the initial learning curve can be steep. So we advise that 
 
 **Intro to Data Analysis (in R)**
 
+**ROTMAN MBA**  
+**Session 1**  
+**Date:** Thursday, September 13, 2021  
+**Time:** 4:00 PM - 6:00 PM (EST)  
+**Location:** Online  
+ 
+**Session 2**  
+**Date:** Thursday, September 20, 2021  
+**Time:** 4:00 PM - 6:00 PM (EST)  
+**Location:** Online  
+  
+**ROTMAN Commerce**  
 **Session 1**  
 **Date:** Thursday, September 16, 2021  
 **Time:** 6:00 PM - 8:00 PM (EST)  
